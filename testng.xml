@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+		<listeners>
+			<listener class-name="Listener.MyTestResult"/>
+		</listeners>
+	  <test thread-count="5" name="OpenBackendTest">
+	    <classes>
+	      <class name="Backend_TestCases.OpenBackend"/>
+	    </classes>
+	  </test>
+	  <test thread-count="5" name="LoginTest">
+	    <classes>
+	      <class name="Backend_TestCases.Login"/>
+	    </classes>
+	  </test>
+	  <test thread-count="5" name="DashboardTest">
+	    <classes>
+	      <class name="Backend_TestCases.Dashboard"/>
+	    </classes>
+	  </test>
+	  <test thread-count="5" name="ManageLicenseeTest">
+	    <classes>
+	      <class name="Backend_TestCases.ManageLicensee"/>
+	    </classes>
+	  </test>
+	  <test thread-count="5" name="ManageCompanySettingTest">
+	    <classes>
+	      <class name="Backend_TestCases.ManageCompanySetting"/>
+	    </classes>
+	  </test>
+</suite>

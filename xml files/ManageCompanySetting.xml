@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<listeners>
+	<listener class-name="Listener.MyTestResult"/>
+</listeners>
+	<test name="Open Backend">
+		<classes>
+			<class name="Backend_TestCases.OpenBackend"/>
+		</classes>
+	</test>
+
+	<test name="Login"> 
+		<classes>
+			<class name="Backend_TestCases.Login"/>
+		</classes>
+	</test>
+	<test name="Open Manage Company Setting"> 
+		<classes>
+			<class name="Backend_TestCases.ManageCompanySetting">
+				<methods>
+					<include name="openManageCompanySetting"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Validate Manage Company Setting"> 
+		<classes>
+			<class name="Backend_TestCases.ManageCompanySetting">
+				<methods>
+					<include name="validateManageCompanySettingPage"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	<test name="Validate Create Company Form"> 
+		<classes>
+			<class name="Backend_TestCases.ManageCompanySetting">
+				<methods>
+					<include name="validateCreateCompanyForm"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	 <test name="Create Company"> 
+		<classes>
+			<class name="Backend_TestCases.ManageCompanySetting">
+				<methods>
+					<include name="createCompany"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Copy Company Language"> 
+		<classes>
+			<class name="Backend_TestCases.ManageCompanySetting">
+				<methods>
+					<include name="copyCompanyLanguage"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Change Company Status"> 
+		<classes>
+			<class name="Backend_TestCases.ManageCompanySetting">
+				<methods>
+					<include name="changeCompanyStatus"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+</suite>  
