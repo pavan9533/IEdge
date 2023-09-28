@@ -337,7 +337,21 @@ public class ManageCompanySetting extends BaseClass{
 		application.click("adminSettingCompanyType_xpath", "Admin Setting Company Type");
 		application.click("adminSettingCompanyTypeSelect_xpath", "Admin setting Company Type Select");
 		application.click("adminSettingSaveButton_xpath", "Admin Setting Save Button");
-		application.validateElementPresent("", date);
+		application.validateElementPresent("adminSettingStartDateError_xpath", "Admin Settings From Date field Required error");
+		application.validateError("adminSettingStartDateError_xpath", "Required field");
+		application.validateElementPresent("adminSettingEndDateError_xpath", "Admin Settings To Date field Required error");
+		application.validateError("adminSettingEndDateError_xpath", "Required field");
+		application.validateElementPresent("adminSettingNoOfCardsRequiredError_xpath", "Admin Settings No Of Cards field Required error");
+		application.validateError("adminSettingNoOfCardsRequiredError_xpath", "Required field");
+		application.validateElementPresent("adminSettingCompanyTypeError_xpath", "Admin Settings Company Required Error");
+		application.validateError("adminSettingCompanyTypeError_xpath", "Required field");
+		application.wait(2);
+		application.type("adminSettingNoOfCards_xpath", "90034");
+		application.click("adminSettingStartDateLabel_xpath", "Start date label");
+		application.validateElementPresent("adminSettingCardsGreaterThanError_xpath", "Admin Settings No of cards greater than licensee cards error.");
+		application.validateError("adminSettingCardsGreaterThanError_xpath", "No. of cards should not be greater then licensee cards");
+		application.wait(5);
+		application.refreshPage();
 		
 		
 		application.click("adminSettingStartDate_xpath", "Admin Setting Start Date");
@@ -347,13 +361,14 @@ public class ManageCompanySetting extends BaseClass{
 		application.click("adminSettingEndDate_xpath", "Admin Setting End Date ");
 		application.selectDateFromExcel("adminSettingEndDateCalender_xpath", "adminSettingEndDateMonth_xpath", "adminSettingEndDateYear_xpath",
 				"Admin_Setting_To_Date", "ManageCompanySetting");
+		application.clear("adminSettingNoOfCards_xpath");
 		application.type("adminSettingNoOfCards_xpath", readExcelData("Admin_Setting_No_of_Cards", "ManageCompanySetting"));
 		application.wait(2);
 		application.click("adminSettingCompanyType_xpath", "Admin Setting Company Type");
 		application.selectOptionUL("adminSettingCompanyTypeDropdown_xpath", "Admin_Setting_Company_Type", "ManageCompanySetting");
 		application.wait(2);
 		application.click("adminSettingSaveButton_xpath", "Admin Setting Save Button.");
-		application.wait(2);
+		application.wait(1);
 		application.validateCompareText("adminSettingSaveUpdatePopup_xpath", "Setting has been update successfully");
 		
 	}

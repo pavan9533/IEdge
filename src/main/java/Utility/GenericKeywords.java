@@ -141,9 +141,13 @@ public class GenericKeywords {
 		
 	}
 	
+//	public void type(String locator,String data) {
+//		log("Locator  "+locator+"    "+"Data     "+data);
+//		getElement(locator).sendKeys((prop.getProperty(data)));		
+//	}
 	public void type(String locator,String data) {
 		log("Locator  "+locator+"    "+"Data     "+data);
-		getElement(locator).sendKeys((prop.getProperty(data)));		
+		getElement(locator).sendKeys(data);		
 	}
 	
 	

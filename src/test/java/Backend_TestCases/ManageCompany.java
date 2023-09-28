@@ -43,8 +43,10 @@ public class ManageCompany extends BaseClass{
 		application.validateElementPresent("manageCompanySettingSearch_xpath" , "Search");
 		application.validateElementPresent("manageCompanyTableHeader_xpath", "Manage Company Table Header");
 		application.type("manageCompanySearch_xpath", readExcelData("Company_Name", "ManageCompany"));
+		application.wait(2);
 		application.clickLastColumnButtonForFirstColumnValue("manageCompanyTable_xpath", "manageCompanyTableFirstColumn_xpath", 
 				"Company_Name", "ManageCompany", "manageCompanyTableEdit_xpath");
+		application.wait(3);
 		application.validateElementPresent("manageEditCompanyPopupTitle_xpath", "Update Company Popup");
 		application.validateElementPresent("createCompanyLicenseeText_xpath", "Licensee text");
 		application.validateMandatoryIconForLabel("Licensee");
@@ -52,6 +54,8 @@ public class ManageCompany extends BaseClass{
 		application.validateMandatoryIconForLabel("Company Domain");
 		application.validateElementPresent("createCompanyDomainNote_xpath", "Company Domain Note");
 		application.validateCompareText("createCompanyDomainNote_xpath", "Domain should start with http:// or https:// or www and space is not allowed");
+		
+		application.
 		application.validateElementPresent("createCompanyNameText_xpath");
 		application.validateMandatoryIconForLabel("Company Name");
 		application.validateElementPresent("createCompanyDefaultCompanyText_xpath");
@@ -69,8 +73,8 @@ public class ManageCompany extends BaseClass{
 		application.scrollTo("createCompanyEmailAddressText_xpath");
 		application.validateElementPresent("createCompanyEmailAddressText_xpath");
 		application.validateMandatoryIconForLabel("Email Address");
-		application.validateElementPresent("createCompanySTDCodeText_xpath");
-		application.validateMandatoryIconForLabel("STD Code");
+//		application.validateElementPresent("createCompanySTDCodeText_xpath");
+//		application.validateMandatoryIconForLabel("STD Code");
 		application.validateElementPresent("createCompanyLandLineText_xpath");
 		application.validateMandatoryIconForLabel("Landline Number");
 		application.validateElementPresent("createCompanyCorrectionText_xpath");

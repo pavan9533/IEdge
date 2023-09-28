@@ -488,6 +488,8 @@ public class ApplicationKeyword extends ValidationKeyword{
 	                        generateScreenshots("Option Clicked.");
 	                        test.log(Status.PASS, labelText + " option is clicked.");
 	                        break;
+	                    }else {
+	                    	test.log(Status.FAIL, labelText+" is not displayed in the list");
 	                    }
 	                }
 	            } catch (NoSuchElementException e) {

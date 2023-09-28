@@ -4,18 +4,18 @@
   <listeners>
     <listener class-name="Listener.MyTestResult"/>
   </listeners>
-  <test thread-count="5" name="Copy Company(failed)">
+  <test thread-count="5" name="Manage Company(failed)">
     <classes>
-      <class name="Backend_TestCases.ManageCompanySetting">
+      <class name="Backend_TestCases.ManageCompany">
         <methods>
           <include name="beforeSuite"/>
           <include name="afterTest"/>
           <include name="beforeTest"/>
           <include name="beforeMethod"/>
+          <include name="validateManageCompany"/>
           <include name="afterSuite"/>
-          <include name="adminSetting"/>
         </methods>
-      </class> <!-- Backend_TestCases.ManageCompanySetting -->
+      </class> <!-- Backend_TestCases.ManageCompany -->
     </classes>
-  </test> <!-- Copy Company(failed) -->
+  </test> <!-- Manage Company(failed) -->
 </suite> <!-- Failed suite [Suite] -->
