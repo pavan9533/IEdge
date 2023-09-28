@@ -173,6 +173,42 @@ public class ApplicationKeyword extends ValidationKeyword{
 	        }
 	    }
 	    
+	    public void selectOptionDivUlLi(String locator, String columnName, String sheetName) {
+	    	WebElement div = driver.findElement(getLocator(locator));
+	        List<WebElement> ulElements = div.findElements(By.tagName("ul"));
+	        if (!ulElements.isEmpty()) {
+	            WebElement ulElement = ulElements.get(0);
+	            try {
+	                List<WebElement> liElements = ulElement.findElements(By.tagName("li"));
+	                
+	                // Retrieve the options from the specified Excel column and sheet
+	                List<String> optionsFromExcel = readExcelData(columnName, sheetName);
+
+	                for (WebElement liElement : liElements) {
+	                    WebElement aElement = liElement.findElement(By.tagName("a"));
+	                    WebElement spanElement = aElement.findElement(By.tagName("span"));
+	                    String spanText = spanElement.getText();
+	                    
+	                    // Check if the spanText is present in the optionsFromExcel list
+	                    if (optionsFromExcel.contains(spanText)) {
+	                    	spanElement.click();
+	                    	wait(2);
+	                        generateScreenshots("Option Clicked.");
+	                        test.log(Status.PASS, spanText + " option is clicked.");
+	                        break;
+	                    }
+	                }
+	            } catch (NoSuchElementException e) {
+	                test.log(Status.FAIL, "One or more options were not found in the dropdown.");
+	            } catch (Exception e) {
+	                e.printStackTrace();
+	                test.log(Status.FAIL, e);
+	            }
+	        } else {
+	            test.log(Status.FAIL, "Not enough ul elements with the specified class.");
+	        }
+	    }
+	    
 //	    public void selectOptioncompany(String locator, String optionText) {
 //	        try {
 //	            WebElement ulElement = driver.findElement(getLocator(locator));
@@ -506,6 +542,21 @@ public class ApplicationKeyword extends ValidationKeyword{
 		   
 		   
 	   }
+	   
+	   public void clickButtonInLastColumnByFirstColumnValue(String tableLocator, String columnName , String sheetName, String buttonLocator) {
+		    List<WebElement> rows = driver.findElements(getLocator(tableLocator));
+		    String firstColumnValue = readExcelData(columnName, sheetName).get(0);
+
+		    for (WebElement row : rows) {
+		        WebElement firstColumn = row.findElement(By.xpath(".//td[1]")); // Assuming first column is at index 1
+		        WebElement lastColumnButton = row.findElement(getLocator(buttonLocator));
+
+		        if (firstColumn.getText().trim().equals(firstColumnValue)) {
+		            lastColumnButton.click();
+		            break; // Exit the loop once the button is clicked
+		        }
+		    }
+		}
 
 	    
 	    

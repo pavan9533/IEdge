@@ -150,14 +150,21 @@ public class GenericKeywords {
 	
 	
 	public void type(String locator, List<String> data) {
-	    log("Locator  " + locator + "    " + "Data     " + data);
-	    WebElement element = getElement(locator);
+	    try {
+	        log("Locator  " + locator + "    " + "Data     " + data);
+	        WebElement element = getElement(locator);
 
-	    for (String value : data) {
-	        value = value.trim();
-	        element.sendKeys(value);
+	        for (String value : data) {
+	            value = value.trim();
+	            element.sendKeys(value);
+	            test.log(Status.PASS, data+" is typed");
+	        }
+	    } catch (Exception e) {
+	    	test.log(Status.FAIL, "Element unable to click "+e);
+	        e.printStackTrace();
 	    }
 	}
+
 	
 	public void typeAfterSwitch(String locator, List<String> data) {
 	    log("Locator  " + locator + "    " + "Data     " + data);

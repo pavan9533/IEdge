@@ -2,42 +2,42 @@
 <testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-09-28T03:58:43 IST" name="Suite" finished-at="2023-09-28T03:59:44 IST" duration-ms="61327">
+  <suite started-at="2023-09-28T07:56:15 IST" name="Suite" finished-at="2023-09-28T07:57:29 IST" duration-ms="73980">
     <groups>
     </groups>
-    <test started-at="2023-09-28T03:58:43 IST" name="Open Backend" finished-at="2023-09-28T03:59:02 IST" duration-ms="19445">
+    <test started-at="2023-09-28T07:56:15 IST" name="Open Backend" finished-at="2023-09-28T07:56:34 IST" duration-ms="18949">
       <class name="Backend_TestCases.OpenBackend">
-        <test-method is-config="true" signature="beforeTest(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.OpenBackend@536f2a7e]" started-at="2023-09-28T03:58:43 IST" name="beforeTest" finished-at="2023-09-28T03:58:43 IST" duration-ms="484" status="PASS">
+        <test-method is-config="true" signature="beforeTest(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.OpenBackend@536f2a7e]" started-at="2023-09-28T07:56:15 IST" name="beforeTest" finished-at="2023-09-28T07:56:16 IST" duration-ms="437" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@3e0a9b1d]]>
+                <![CDATA[org.testng.TestRunner@6d815fb7]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method is-config="true" signature="beforeMethod(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.OpenBackend@536f2a7e]" started-at="2023-09-28T03:58:43 IST" name="beforeMethod" finished-at="2023-09-28T03:58:43 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.OpenBackend@536f2a7e]" started-at="2023-09-28T07:56:16 IST" name="beforeMethod" finished-at="2023-09-28T07:56:16 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@3e0a9b1d]]>
+                <![CDATA[org.testng.TestRunner@6d815fb7]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="openBackend()[pri:0, instance:Backend_TestCases.OpenBackend@536f2a7e]" started-at="2023-09-28T03:58:43 IST" name="openBackend" finished-at="2023-09-28T03:59:01 IST" duration-ms="18125" status="PASS">
+        <test-method signature="openBackend()[pri:0, instance:Backend_TestCases.OpenBackend@536f2a7e]" started-at="2023-09-28T07:56:16 IST" name="openBackend" finished-at="2023-09-28T07:56:34 IST" duration-ms="17693" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBackend -->
-        <test-method is-config="true" signature="afterTest(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.OpenBackend@536f2a7e]" started-at="2023-09-28T03:59:01 IST" name="afterTest" finished-at="2023-09-28T03:59:02 IST" duration-ms="728" status="PASS">
+        <test-method is-config="true" signature="afterTest(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.OpenBackend@536f2a7e]" started-at="2023-09-28T07:56:34 IST" name="afterTest" finished-at="2023-09-28T07:56:34 IST" duration-ms="755" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@3e0a9b1d]]>
+                <![CDATA[org.testng.TestRunner@6d815fb7]]>
               </value>
             </param>
           </params>
@@ -46,54 +46,54 @@
         </test-method> <!-- afterTest -->
       </class> <!-- Backend_TestCases.OpenBackend -->
     </test> <!-- Open Backend -->
-    <test started-at="2023-09-28T03:59:02 IST" name="Login" finished-at="2023-09-28T03:59:21 IST" duration-ms="19002">
+    <test started-at="2023-09-28T07:56:34 IST" name="Login" finished-at="2023-09-28T07:56:53 IST" duration-ms="19106">
       <class name="Backend_TestCases.Login">
-        <test-method is-config="true" signature="beforeTest(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.Login@55de24cc]" started-at="2023-09-28T03:59:02 IST" name="beforeTest" finished-at="2023-09-28T03:59:02 IST" duration-ms="6" status="PASS">
+        <test-method is-config="true" signature="beforeTest(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.Login@55de24cc]" started-at="2023-09-28T07:56:34 IST" name="beforeTest" finished-at="2023-09-28T07:56:34 IST" duration-ms="6" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@52f9e8bb]]>
+                <![CDATA[org.testng.TestRunner@51af8049]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method is-config="true" signature="beforeMethod(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.Login@55de24cc]" started-at="2023-09-28T03:59:02 IST" name="beforeMethod" finished-at="2023-09-28T03:59:02 IST" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.Login@55de24cc]" started-at="2023-09-28T07:56:34 IST" name="beforeMethod" finished-at="2023-09-28T07:56:34 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@52f9e8bb]]>
+                <![CDATA[org.testng.TestRunner@51af8049]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="login()[pri:1, instance:Backend_TestCases.Login@55de24cc]" started-at="2023-09-28T03:59:02 IST" name="login" finished-at="2023-09-28T03:59:11 IST" duration-ms="9329" status="PASS">
+        <test-method signature="login()[pri:1, instance:Backend_TestCases.Login@55de24cc]" started-at="2023-09-28T07:56:34 IST" name="login" finished-at="2023-09-28T07:56:44 IST" duration-ms="9191" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method is-config="true" signature="beforeMethod(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.Login@55de24cc]" started-at="2023-09-28T03:59:11 IST" name="beforeMethod" finished-at="2023-09-28T03:59:11 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.Login@55de24cc]" started-at="2023-09-28T07:56:44 IST" name="beforeMethod" finished-at="2023-09-28T07:56:44 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@52f9e8bb]]>
+                <![CDATA[org.testng.TestRunner@51af8049]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="selectCompany()[pri:2, instance:Backend_TestCases.Login@55de24cc]" started-at="2023-09-28T03:59:11 IST" name="selectCompany" finished-at="2023-09-28T03:59:21 IST" duration-ms="9500" status="PASS">
+        <test-method signature="selectCompany()[pri:2, instance:Backend_TestCases.Login@55de24cc]" started-at="2023-09-28T07:56:44 IST" name="selectCompany" finished-at="2023-09-28T07:56:53 IST" duration-ms="9763" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- selectCompany -->
-        <test-method is-config="true" signature="afterTest(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.Login@55de24cc]" started-at="2023-09-28T03:59:21 IST" name="afterTest" finished-at="2023-09-28T03:59:21 IST" duration-ms="136" status="PASS">
+        <test-method is-config="true" signature="afterTest(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.Login@55de24cc]" started-at="2023-09-28T07:56:53 IST" name="afterTest" finished-at="2023-09-28T07:56:53 IST" duration-ms="112" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@52f9e8bb]]>
+                <![CDATA[org.testng.TestRunner@51af8049]]>
               </value>
             </param>
           </params>
@@ -102,83 +102,109 @@
         </test-method> <!-- afterTest -->
       </class> <!-- Backend_TestCases.Login -->
     </test> <!-- Login -->
-    <test started-at="2023-09-28T03:59:21 IST" name="Manage Category" finished-at="2023-09-28T03:59:44 IST" duration-ms="22797">
-      <class name="Backend_TestCases.ManageCategory">
-        <test-method is-config="true" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.ManageCategory@16150369]" started-at="2023-09-28T03:58:42 IST" name="beforeSuite" finished-at="2023-09-28T03:58:43 IST" duration-ms="540" status="PASS">
+    <test started-at="2023-09-28T07:56:53 IST" name="Open Manage Company Setting" finished-at="2023-09-28T07:57:03 IST" duration-ms="9464">
+      <class name="Backend_TestCases.ManageCompanySetting">
+        <test-method is-config="true" signature="beforeTest(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.ManageCompanySetting@6b09fb41]" started-at="2023-09-28T07:56:53 IST" name="beforeTest" finished-at="2023-09-28T07:56:53 IST" duration-ms="7" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@1883871b]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeSuite -->
-        <test-method is-config="true" signature="beforeTest(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.ManageCategory@16150369]" started-at="2023-09-28T03:59:21 IST" name="beforeTest" finished-at="2023-09-28T03:59:21 IST" duration-ms="12" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@1883871b]]>
+                <![CDATA[org.testng.TestRunner@376af784]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="openManageCategory()[pri:0, instance:Backend_TestCases.ManageCategory@16150369]" started-at="2023-09-28T03:59:21 IST" name="openManageCategory" finished-at="2023-09-28T03:59:35 IST" duration-ms="14236" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- openManageCategory -->
-        <test-method is-config="true" signature="beforeMethod(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.ManageCategory@16150369]" started-at="2023-09-28T03:59:21 IST" name="beforeMethod" finished-at="2023-09-28T03:59:21 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.ManageCompanySetting@6b09fb41]" started-at="2023-09-28T07:56:53 IST" name="beforeMethod" finished-at="2023-09-28T07:56:53 IST" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@1883871b]]>
+                <![CDATA[org.testng.TestRunner@376af784]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="beforeMethod(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.ManageCategory@16150369]" started-at="2023-09-28T03:59:35 IST" name="beforeMethod" finished-at="2023-09-28T03:59:35 IST" duration-ms="1" status="PASS">
+        <test-method signature="openManageCompanySetting()[pri:0, instance:Backend_TestCases.ManageCompanySetting@6b09fb41]" started-at="2023-09-28T07:56:53 IST" name="openManageCompanySetting" finished-at="2023-09-28T07:57:03 IST" duration-ms="9368" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openManageCompanySetting -->
+        <test-method is-config="true" signature="afterTest(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.ManageCompanySetting@6b09fb41]" started-at="2023-09-28T07:57:03 IST" name="afterTest" finished-at="2023-09-28T07:57:03 IST" duration-ms="78" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@1883871b]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="deleteCategory()[pri:0, instance:Backend_TestCases.ManageCategory@16150369]" started-at="2023-09-28T03:59:35 IST" name="deleteCategory" finished-at="2023-09-28T03:59:44 IST" duration-ms="8436" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteCategory -->
-        <test-method is-config="true" signature="afterTest(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.ManageCategory@16150369]" started-at="2023-09-28T03:59:44 IST" name="afterTest" finished-at="2023-09-28T03:59:44 IST" duration-ms="104" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@1883871b]]>
+                <![CDATA[org.testng.TestRunner@376af784]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method is-config="true" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.ManageCategory@16150369]" started-at="2023-09-28T03:59:44 IST" name="afterSuite" finished-at="2023-09-28T03:59:45 IST" duration-ms="727" status="PASS">
+      </class> <!-- Backend_TestCases.ManageCompanySetting -->
+    </test> <!-- Open Manage Company Setting -->
+    <test started-at="2023-09-28T07:57:03 IST" name="Copy Company" finished-at="2023-09-28T07:57:29 IST" duration-ms="26365">
+      <class name="Backend_TestCases.ManageCompanySetting">
+        <test-method is-config="true" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.ManageCompanySetting@5db6b9cd]" started-at="2023-09-28T07:56:14 IST" name="beforeSuite" finished-at="2023-09-28T07:56:15 IST" duration-ms="835" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@1883871b]]>
+                <![CDATA[org.testng.TestRunner@76596288]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method is-config="true" signature="beforeTest(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.ManageCompanySetting@5db6b9cd]" started-at="2023-09-28T07:57:03 IST" name="beforeTest" finished-at="2023-09-28T07:57:03 IST" duration-ms="13" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@76596288]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method is-config="true" signature="beforeMethod(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.ManageCompanySetting@5db6b9cd]" started-at="2023-09-28T07:57:03 IST" name="beforeMethod" finished-at="2023-09-28T07:57:03 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@76596288]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="adminSetting()[pri:0, instance:Backend_TestCases.ManageCompanySetting@5db6b9cd]" started-at="2023-09-28T07:57:03 IST" name="adminSetting" finished-at="2023-09-28T07:57:29 IST" duration-ms="26252" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- adminSetting -->
+        <test-method is-config="true" signature="afterTest(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.ManageCompanySetting@5db6b9cd]" started-at="2023-09-28T07:57:29 IST" name="afterTest" finished-at="2023-09-28T07:57:29 IST" duration-ms="87" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@76596288]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method is-config="true" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:Backend_TestCases.ManageCompanySetting@5db6b9cd]" started-at="2023-09-28T07:57:29 IST" name="afterSuite" finished-at="2023-09-28T07:57:30 IST" duration-ms="780" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@76596288]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- Backend_TestCases.ManageCategory -->
-    </test> <!-- Manage Category -->
+      </class> <!-- Backend_TestCases.ManageCompanySetting -->
+    </test> <!-- Copy Company -->
   </suite> <!-- Suite -->
 </testng-results>

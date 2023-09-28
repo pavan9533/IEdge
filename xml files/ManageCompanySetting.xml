@@ -24,51 +24,19 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Validate Manage Company Setting"> 
+	
+	<test name="Copy Company"> 
 		<classes>
 			<class name="Backend_TestCases.ManageCompanySetting">
 				<methods>
-					<include name="validateManageCompanySettingPage"></include>
-				</methods>
-			</class>
-		</classes>
-	</test> 
-	<test name="Validate Create Company Form"> 
-		<classes>
-			<class name="Backend_TestCases.ManageCompanySetting">
-				<methods>
-					<include name="validateCreateCompanyForm"></include>
+					<include name="adminSetting"></include>
 				</methods>
 			</class>
 		</classes>
 	</test>
-	 <test name="Create Company"> 
-		<classes>
-			<class name="Backend_TestCases.ManageCompanySetting">
-				<methods>
-					<include name="createCompany"></include>
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Copy Company Language"> 
-		<classes>
-			<class name="Backend_TestCases.ManageCompanySetting">
-				<methods>
-					<include name="copyCompanyLanguage"></include>
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Change Company Status"> 
-		<classes>
-			<class name="Backend_TestCases.ManageCompanySetting">
-				<methods>
-					<include name="changeCompanyStatus"></include>
-				</methods>
-			</class>
-		</classes>
-	</test>
+	
+	
+	
 	
 	
 </suite>  
