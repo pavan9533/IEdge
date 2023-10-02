@@ -108,6 +108,11 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="Backend_TestCases.ManageCompany" class="method navigator-link" hash-for-method="manageCompanyAddAboutUS">manageCompanyAddAboutUS</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="Backend_TestCases.OpenBackend" class="method navigator-link" hash-for-method="openBackend">openBackend</a> <!-- method navigator-link -->
                       </span>
                       <br/>
@@ -119,11 +124,6 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="Backend_TestCases.Login" class="method navigator-link" hash-for-method="selectCompany">selectCompany</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="Backend_TestCases.ManageCompany" class="method navigator-link" hash-for-method="validateManageCompany">validateManageCompany</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -168,16 +168,16 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="openManageCompany">
-                  </a> <!-- openManageCompany -->
-                  <span class="method-name">openManageCompany</span>
+                  <a name="manageCompanyAddAboutUS">
+                  </a> <!-- manageCompanyAddAboutUS -->
+                  <span class="method-name">manageCompanyAddAboutUS</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="validateManageCompany">
-                  </a> <!-- validateManageCompany -->
-                  <span class="method-name">validateManageCompany</span>
+                  <a name="openManageCompany">
+                  </a> <!-- openManageCompany -->
+                  <span class="method-name">openManageCompany</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -225,7 +225,7 @@
       &lt;class name=&quot;Backend_TestCases.ManageCompany&quot;&gt;
         &lt;methods&gt;
           &lt;include name=&quot;openManageCompany&quot;/&gt;
-          &lt;include name=&quot;validateManageCompany&quot;/&gt;
+          &lt;include name=&quot;manageCompanyAddAboutUS&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- Backend_TestCases.ManageCompany --&gt;
     &lt;/classes&gt;
@@ -275,30 +275,30 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'validateManageCompany')
+data.setCell(0, 1, 'manageCompanyAddAboutUS')
 data.setCell(0, 2, 'Backend_TestCases.ManageCompany')
-data.setCell(0, 3, 21632);
+data.setCell(0, 3, 62007);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'openManageCompany')
-data.setCell(1, 2, 'Backend_TestCases.ManageCompany')
-data.setCell(1, 3, 8281);
+data.setCell(1, 1, 'selectCompany')
+data.setCell(1, 2, 'Backend_TestCases.Login')
+data.setCell(1, 3, 34681);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'login')
 data.setCell(2, 2, 'Backend_TestCases.Login')
-data.setCell(2, 3, 8080);
+data.setCell(2, 3, 24452);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'selectCompany')
-data.setCell(3, 2, 'Backend_TestCases.Login')
-data.setCell(3, 3, 8000);
+data.setCell(3, 1, 'openManageCompany')
+data.setCell(3, 2, 'Backend_TestCases.ManageCompany')
+data.setCell(3, 3, 16271);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'openBackend')
 data.setCell(4, 2, 'Backend_TestCases.OpenBackend')
-data.setCell(4, 3, 7302);
+data.setCell(4, 3, 15221);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 53 seconds</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -319,6 +319,8 @@ return data;
             <div class="ignored-class-div">
               <span class="ignored-class-name">Backend_TestCases.ManageCompany</span>
               <div class="ignored-methods-div">
+                <span class="ignored-method-name">validateManageCompany</span>
+                <br/>
                 <span class="ignored-method-name">changeEntriesFilter</span>
                 <br/>
                 <span class="ignored-method-name">selectTheme</span>
@@ -328,8 +330,6 @@ return data;
                 <span class="ignored-method-name">updateCompanySetting</span>
                 <br/>
                 <span class="ignored-method-name">setVirtualBackground</span>
-                <br/>
-                <span class="ignored-method-name">manageCompanyAddAboutUS</span>
                 <br/>
                 <span class="ignored-method-name">employeeIDCardSettings</span>
                 <br/>
@@ -345,85 +345,85 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">Backend_TestCases.ManageCompany</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
-                <span class="method-name">beforeSuite(org.testng.TestRunner@6cbdd1c5)</span>
+                <span class="method-name">beforeSuite(org.testng.TestRunner@bf2aa32)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">Backend_TestCases.OpenBackend</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
-                <span class="method-name">beforeTest(org.testng.TestRunner@60816371)</span>
-                <span class="method-start">713 ms</span>
+                <span class="method-name">beforeTest(org.testng.TestRunner@56da96b3)</span>
+                <span class="method-start">321 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@60816371)</span>
-                <span class="method-start">1112 ms</span>
+                <span class="method-name">beforeMethod(org.testng.TestRunner@56da96b3)</span>
+                <span class="method-start">1031 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">openBackend</span>
-                <span class="method-start">1113 ms</span>
+                <span class="method-start">1035 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
-                <span class="method-name">afterTest(org.testng.TestRunner@60816371)</span>
-                <span class="method-start">8418 ms</span>
+                <span class="method-name">afterTest(org.testng.TestRunner@56da96b3)</span>
+                <span class="method-start">16271 ms</span>
               </div> <!-- configuration-test after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">Backend_TestCases.Login</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
-                <span class="method-name">beforeTest(org.testng.TestRunner@678586f0)</span>
-                <span class="method-start">8807 ms</span>
+                <span class="method-name">beforeTest(org.testng.TestRunner@6b3d9c38)</span>
+                <span class="method-start">17103 ms</span>
               </div> <!-- configuration-test before -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(org.testng.TestRunner@6b3d9c38)</span>
+                <span class="method-start">17114 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">login</span>
-                <span class="method-start">8812 ms</span>
+                <span class="method-start">17116 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@678586f0)</span>
-                <span class="method-start">8812 ms</span>
+                <span class="method-name">beforeMethod(org.testng.TestRunner@6b3d9c38)</span>
+                <span class="method-start">41575 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">selectCompany</span>
-                <span class="method-start">16892 ms</span>
+                <span class="method-start">41578 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@678586f0)</span>
-                <span class="method-start">16892 ms</span>
-              </div> <!-- configuration-method before -->
               <div class="configuration-test after">
-                <span class="method-name">afterTest(org.testng.TestRunner@678586f0)</span>
-                <span class="method-start">24892 ms</span>
+                <span class="method-name">afterTest(org.testng.TestRunner@6b3d9c38)</span>
+                <span class="method-start">76264 ms</span>
               </div> <!-- configuration-test after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">Backend_TestCases.ManageCompany</div> <!-- chronological-class-name -->
-              <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@6cbdd1c5)</span>
-                <span class="method-start">24939 ms</span>
-              </div> <!-- configuration-method before -->
               <div class="configuration-test before">
-                <span class="method-name">beforeTest(org.testng.TestRunner@6cbdd1c5)</span>
-                <span class="method-start">24939 ms</span>
+                <span class="method-name">beforeTest(org.testng.TestRunner@bf2aa32)</span>
+                <span class="method-start">76382 ms</span>
               </div> <!-- configuration-test before -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(org.testng.TestRunner@bf2aa32)</span>
+                <span class="method-start">76391 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">openManageCompany</span>
-                <span class="method-start">24939 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">validateManageCompany</span>
-                <span class="method-start">33220 ms</span>
+                <span class="method-start">76392 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@6cbdd1c5)</span>
-                <span class="method-start">33220 ms</span>
+                <span class="method-name">beforeMethod(org.testng.TestRunner@bf2aa32)</span>
+                <span class="method-start">92679 ms</span>
               </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">manageCompanyAddAboutUS</span>
+                <span class="method-start">92683 ms</span>
+              </div> <!-- test-method -->
               <div class="configuration-test after">
-                <span class="method-name">afterTest(org.testng.TestRunner@6cbdd1c5)</span>
-                <span class="method-start">54852 ms</span>
+                <span class="method-name">afterTest(org.testng.TestRunner@bf2aa32)</span>
+                <span class="method-start">154710 ms</span>
               </div> <!-- configuration-test after -->
               <div class="configuration-suite after">
-                <span class="method-name">afterSuite(org.testng.TestRunner@6cbdd1c5)</span>
-                <span class="method-start">54884 ms</span>
+                <span class="method-name">afterSuite(org.testng.TestRunner@bf2aa32)</span>
+                <span class="method-start">154885 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

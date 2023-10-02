@@ -982,7 +982,9 @@ public class ValidationKeyword extends GenericKeywords{
 		            if (firstColumnText.toLowerCase().equals(targetValue.toLowerCase())) {
 		                // Click the button in the last column using the provided button locator
 		                WebElement lastColumnButton = columns.get(columns.size() - 1).findElement(getLocator(buttonLocator));
+		                highlightElement(lastColumnButton);
 		                lastColumnButton.click();
+		                wait(3);
 		                log(targetValue+"Button in the last column is clicked");
 		                return; // Exit the method after clicking the button
 		            }

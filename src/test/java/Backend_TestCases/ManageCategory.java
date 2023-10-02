@@ -83,7 +83,7 @@ public class ManageCategory extends BaseClass{
 		application.validateElementPresent("manageCategoryNameError_xpath", "Category Name Error");
 		application.validateError("manageCategoryNameError_xpath", "Category name is required");
 		application.click("manageCategoryAddCategoryButton_xpath" , "Manage Category Add Category Button");
-		application.type("manageCategoryCategoryName_xpath", readExcelData("Category_Name", "ManageCategory"));
+		application.type("manageCategoryName_xpath", readExcelData("Category_Name", "ManageCategory"));
 		application.wait(2);
 		application.click("manageCategoryChooseCompany_xpath" , "Manage Category Choose Company button");
 		application.selectOptionUL("manageCategoryChooseCompanyDropdown_xpath", "Company_Name", "ManageCategory");

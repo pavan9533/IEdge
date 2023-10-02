@@ -3,6 +3,7 @@ package Backend_TestCases;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.poi.sl.usermodel.ObjectMetaData.Application;
 import org.apache.xmlbeans.impl.xb.xsdschema.AppinfoDocument.Appinfo;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -17,7 +18,9 @@ public class ManageCompany extends BaseClass{
 	@Test
 	public void openManageCompany() {
 		application.click("configurationOptionLeftMenu_xpath" , "Configurations Button");
-		application.wait(2);
+		application.highlightElement("configurationOptionLeftMenu_xpath");
+		application.wait(3);
+		application.removeHighlight("configurationOptionLeftMenu_xpath");
 		application.click("manageCompanyButton_xpath" , "Manage Company Button");
 		application.wait(5);
 	}
@@ -54,8 +57,14 @@ public class ManageCompany extends BaseClass{
 		application.validateMandatoryIconForLabel("Company Domain");
 		application.validateElementPresent("createCompanyDomainNote_xpath", "Company Domain Note");
 		application.validateCompareText("createCompanyDomainNote_xpath", "Domain should start with http:// or https:// or www and space is not allowed");
-		
-		application.
+		application.validateElementPresent("createCompanyNoOfCardsLabel_xpath", "No. of Cards Label");
+		application.validateElementPresent("createCompanyTypeLabel_xpath", "Company Type Label");
+		application.validateElementPresent("createCompanyStartDateLabel_xpath", "Start Date Label");
+		application.validateElementPresent("createCompanyEndDateLabel_xpath", "End Date Label");
+		application.validateElementPresent("createCompanyNoOfCards_xpath", "No . of Cards");
+		application.validateElementPresent("createCompanyType_xpath", "Company Type");
+		application.validateElementPresent("createCompanyStartDate_xpath", "Company Start Date ");
+		application.validateElementPresent("createCompanyEndDate_xpath", "Company End Date ");
 		application.validateElementPresent("createCompanyNameText_xpath");
 		application.validateMandatoryIconForLabel("Company Name");
 		application.validateElementPresent("createCompanyDefaultCompanyText_xpath");
@@ -131,10 +140,46 @@ public class ManageCompany extends BaseClass{
 		application.scrollTo("manageCompanyTheme5_xpath");
 		application.validateElementPresent("manageCompanyTheme5_xpath", "Mobile Theme 5");
 		application.validateElementPresent("manageCompanyTheme6_xpath", "Mobile Theme 6");
+		application.validateElementPresent("manageCompanyTheme7_xpath", "Mobile Theme 7");
 		application.wait(2);
 		application.validateElementPresent("manageCompanyEditThemeCancelButton_xpath", "Cancel Button");
 		application.selectTheme("Company_Theme", "ManageCompany");
 		application.wait(6);
+		application.validateElementPresent("editCompanyMobileVersionButton_xpath", "Mobile Version Button");
+		application.validateElementPresent("editCompanyDesktopVersionButton_xpath", "Desktop version button");
+		application.click("editCompanyMobileEditFront_xpath", "Mobile Front Edit button");
+		application.wait(2);
+		application.validateElementPresent("editCompanyMobileEditFrontTitle_xpath", "Mobile Version edit Popup Title");
+		application.validateElementPresent("editCompanyMobileEditFrontUploadImage_xpath", "Mobile Version edit Popup upload Image Button");
+		application.validateElementPresent("editCompanyMobileEditFrontCloseButton_xpath", "Mobile Version edit Popup Close Button");
+		application.validateElementPresent("editCompanyMobileEditFrontOkButton_xpath", "Mobile Version edit Popup Ok Button");
+		application.click("editCompanyMobileEditFrontOkButton_xpath", "Mobile Version edit Popup Ok Button");
+		application.wait(3);
+		application.validateElementNotDisplayed("editCompanyMobileEditFrontOkButton_xpath", "Mobile Version edit Popup Ok Button");
+		application.validateElementPresent("editCompanyMobileVersionChangeNameStyle_xath" , "Mobile version Change Name Style Button");
+		application.validateElementPresent("editCompanyMobileVersionChangeDesignationStyle_xpath", "Mobile version Change Designation Style Button");
+		application.validateElementPresent("editCompanyMobileVersionChangeContactStyle_xpath", "Mobile version Change contact Style Button");
+		application.validateElementPresent("editCompanyMobileVersionChangeAddressStyle_xpath", "Mobile version Change Address Style Button");
+		application.click("editCompanyMobileVersionChangeNameStyle_xath", "Mobile version Change Name Style Button");
+		application.wait(2);
+		application.validateElementPresent("editCompanyMobileVersionChangeNamePopupTitle_xpath", "Mobile Version Change Name popup Title");
+		application.validateElementPresent("editCompanyMobileVersionChangeNamePopupFontFamilyLabel_xpath", "Mobile Version Change Name popup Font Family Label");
+		application.validateElementPresent("editCompanyMobileVersionChangeNamePopupFontSizeLabel_xpath", "Mobile Version Change Name popup Font Size Label");
+		application.validateElementPresent("editCompanyMobileVersionChangeNamePopupFontWeightLabel_xpath", "Mobile Version Change Name popup Font Weight Label");
+		application.validateElementPresent("editCompanyMobileVersionChangeNamePopupFontColorLabel_xpath", "Mobile Version Change Name popup Font Color Label");
+		application.selectFromDropdown("editCompanyMobileVersionChangeNamePopupFontFamily_xpath", "Mobile_Font_Family", "ManageCompany");
+		application.wait(2);
+		application.selectFromDropdown("editCompanyMobileVersionChangeNamePopupFontSizeLabel_xpath", "Mobile_Font_Size" , "ManageCompany");
+		application.wait(2);
+		application.selectFromDropdown("editCompanyMobileVersionChangeNamePopupFontWeightLabel_xpath", "Mobile_Font_Weight" , "ManageCompany");
+		application.click("editCompanyMobileVersionChangeNamePopupOkButton_xpath", "Change Name Style Ok Button");
+//		application.scrollTo("editCompanyThemeDesktopVersionButton_xpath");
+//		application.click("editCompanyThemeDesktopVersionButton_xpath", "Theme Desktop Version button");
+//		application.wait(3);
+//		application.click("editCompanyDesktopVersionEditbutton_xpath", "Desktop version Edit Button");
+//		application.wait(2);
+//		application.validateElementPresent("editCompanyDesktopVersionTheme_xpath", "Desktop theme");
+//		application
 		application.scrollByValue("10000");
 		application.wait(3);
 		application.click("selectMobileThemeUpdateButton_xpath" , "Manage Company Select Mobile Theme Update Button");
@@ -311,6 +356,7 @@ public class ManageCompany extends BaseClass{
 		application.clickCheckboxBasedOnExcelParameter("IdCardBackCompanyEmployeeResidenceCheckbox_xpath", "Employee_Residence", "IdCardSettings");
 		application.wait(5);
 		application.click("IdCardSaveButton_xpath" , "Company Setting Save ID Card Button");
+		application.wait(1);
 		application.validateCompareText("companySettingUpdatePopup_xpath", "Company employee card setting fields saved successfully");
 		application.wait(2);
 		application.clear("manageCompanySearch_xpath");
@@ -339,6 +385,7 @@ public class ManageCompany extends BaseClass{
 		application.uploadImage("virtualBGUploadImageButton_xpath", "\\Upload\\download.png");
 		application.wait(3);
 		application.click("virtualBGSaveButton_xpath" , "Virtual BG Save Button");
+		application.wait(1);
 		application.validateCompareText("virtualBGUploadSuccessfulPopup_xpath", "Background image saved sucessfully !!");
 		application.clear("manageCompanySearch_xpath");
 	}

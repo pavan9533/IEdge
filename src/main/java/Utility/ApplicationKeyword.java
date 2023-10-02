@@ -350,26 +350,35 @@ public class ApplicationKeyword extends ValidationKeyword{
 	    		String theme = readExcelData(columnName, sheetName).get(0);
 	    		if(theme.equalsIgnoreCase("Theme1")) {
 	    			scrollTo("manageCompanyTheme1_xpath");
+	    			highlightElement("manageCompanyTheme1_xpath");
 	    			click("manageCompanyTheme1_xpath" , "Theme 1");
 	    		}else if(theme.equalsIgnoreCase("Theme2")) {
 	    			scrollTo("manageCompanyTheme2_xpath");
+	    			highlightElement("manageCompanyTheme2_xpath");
 	    			click("manageCompanyTheme2_xpath" , "Theme 2");
 	    		}
 	    		else if(theme.equalsIgnoreCase("Theme3")) {
 	    			scrollTo("manageCompanyTheme3_xpath");
+	    			highlightElement("manageCompanyTheme3_xpath");
 	    			click("manageCompanyTheme3_xpath" , "Theme 3");
 	    		}
 	    		else if(theme.equalsIgnoreCase("Theme4")) {
 	    			scrollTo("manageCompanyTheme4_xpath");
+	    			highlightElement("manageCompanyTheme4_xpath");
 	    			click("manageCompanyTheme4_xpath", "Theme 4");
 	    		}
 	    		else if(theme.equalsIgnoreCase("Theme5")) {
 	    			scrollTo("manageCompanyTheme5_xpath");
+	    			highlightElement("manageCompanyTheme5_xpath");
 	    			click("manageCompanyTheme5_xpath", "Theme 5");
 	    		}
 	    		else if(theme.equalsIgnoreCase("Theme6")) {
 	    			scrollTo("manageCompanyTheme6_xpath");
 	    			click("manageCompanyTheme6_xpath", "Theme 6");
+	    		}else if(theme.equalsIgnoreCase("Theme7")) {
+	    			scrollTo("manageCompanyTheme7_xpath");
+	    			highlightElement("manageCompanyTheme1_xpath");
+	    			click("manageCompanyTheme7_xpath", "Theme 6");
 	    		}
 	    		
 	    	}catch(Exception e) {

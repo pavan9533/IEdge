@@ -11,8 +11,8 @@
           <include name="beforeSuite"/>
           <include name="afterTest"/>
           <include name="beforeTest"/>
+          <include name="selectTheme"/>
           <include name="beforeMethod"/>
-          <include name="validateManageCompany"/>
           <include name="afterSuite"/>
         </methods>
       </class> <!-- Backend_TestCases.ManageCompany -->

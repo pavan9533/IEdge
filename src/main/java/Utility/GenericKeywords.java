@@ -125,15 +125,69 @@ public class GenericKeywords {
 	}
 	
 	
-	public void click(String locator ,String elementName) {
+//	public void click(String locator ,String elementName) {
+//	    try {
+//	        log("Clicking "+elementName);
+//	        getElement(locator).click();
+//	        test.log(Status.PASS , "Clicking "+elementName);
+//	    } catch (Exception e) {
+//	        test.log(Status.FAIL , "Failed to click "+elementName+" "+ e.getMessage());
+//	    }
+//	}
+	
+	public void click(String locator, String elementName) {
 	    try {
-	        log("Clicking "+elementName);
-	        getElement(locator).click();
-	        test.log(Status.PASS , "Clicking "+elementName);
+	        log("Clicking " + elementName);
+	        WebElement element = getElement(locator);
+	        highlightElement(locator);
+	        element.click();
+	        wait(3);
+	        test.log(Status.PASS, "Clicking " + elementName);
+	        try {
+	        	removeHighlight(locator);
+	        }catch(Exception e) {
+	        	test.log(Status.INFO, "Remove Highlight not visible");
+	        }
+	        
 	    } catch (Exception e) {
-	        test.log(Status.FAIL , "Failed to click "+elementName+" "+ e.getMessage());
+	        test.log(Status.FAIL, "Failed to click " + elementName + " " + e.getMessage());
 	    }
 	}
+
+	
+	public void highlightElement(String locator) {
+		WebElement element = null;
+		try {
+			element = driver.findElement(getLocator(locator));
+		}catch(Exception e){
+			test.log(Status.FAIL, "Unable to Highlight the element"+e);
+		}
+	        JavascriptExecutor js = (JavascriptExecutor) driver;
+	        js.executeScript("arguments[0].style.border='2px solid red';", element);
+        
+    }
+	
+    
+    public void removeHighlight(String locator) {
+    	WebElement element = null;
+    	try {
+    		element = driver.findElement(getLocator(locator));
+    	}catch(Exception e) {
+    		test.log(Status.INFO, "Unable to remove Highlight the element");
+    	}
+	        JavascriptExecutor js = (JavascriptExecutor) driver;
+	        js.executeScript("arguments[0].style.border='';", element);
+    }
+    
+    public void highlightElement(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].style.border='2px solid red';", element);
+    }
+    
+    public void removeHighlight(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].style.border='';", element);
+    }
 
 	
 	public void clickEnter(String locator) {
@@ -188,8 +242,18 @@ public class GenericKeywords {
 	
 
 	
-	public void select(String locator, String data) {
+	public void selectFromDropdown(String locator, String columnName , String sheetName) {
+		String data = readExcelData(columnName, sheetName).get(0);
 		
+		 try {
+	            WebElement dropdown = driver.findElement(getLocator(locator));
+	            Select select = new Select(dropdown);
+	            select.selectByVisibleText(data);
+	            test.log(Status.PASS, data+" is selected from Dropdown");
+	        } catch (Exception e) {
+	        	test.log(Status.FAIL, "Unable to Select Data from Dropdown "+ e);
+	            e.printStackTrace();
+	        }
 	}
 	
 	public void getText(String locatorKey) {
@@ -387,9 +451,14 @@ public class GenericKeywords {
 
 
 	public void scrollByValue(String value) {
-		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-		String script = "window.scrollBy(0, " + value + ");";
-        jsExecutor.executeScript(script);
+		try {
+			JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+			String script = "window.scrollBy(0, " + value + ");";
+	        jsExecutor.executeScript(script);
+		}catch(Exception e) {
+			test.log(Status.FAIL, "Unable to scroll to element "+ e);
+		}
+		
     }
 	
 	 

@@ -49,6 +49,12 @@ public class ManageCompanySetting extends BaseClass{
 		application.validateMandatoryIconForLabel("Start Date");
 		application.validateElementPresent("createCompanyEndDateLabel_xpath", "Create Company end Date Label");
 		application.validateMandatoryIconForLabel("End Date");
+		application.validateElementPresent("createCompanyNoOfCards_xpath", "No. of Cards");
+		application.validateElementPresent("createCompanyType_xpath", "Company Type");
+		application.validateElementPresent("createCompanyStartDate_xpath", "Company Start Date ");
+		application.validateElementPresent("createCompanyEndDate_xpath", "Company End Date ");
+		
+		
 		application.validateElementPresent("createCompanyNameText_xpath");
 		application.validateMandatoryIconForLabel("Company Name");
 		application.validateElementPresent("createCompanyDefaultCompanyText_xpath");
