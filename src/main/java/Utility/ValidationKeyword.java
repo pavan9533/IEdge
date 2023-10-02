@@ -969,29 +969,71 @@ public class ValidationKeyword extends GenericKeywords{
 	        log("Unable to read Excel data");
 	        return;
 	    }
-	    // Iterate over the rows of the table
 	    for (WebElement row : rows) {
 	        List<WebElement> columns = row.findElements(By.tagName("td"));
 
-	        if (columns.size() >= 1) { // Check if there's at least one column
-	            WebElement firstColumn = columns.get(0); // Assuming the first column contains the relevant value
-
-	            // Check the content of the first column
+	        if (columns.size() >= 1) { 
+	            WebElement firstColumn = columns.get(0); 
 	            String firstColumnText = firstColumn.getText();
 	            for(String targetValue : targetValues) {	
 		            if (firstColumnText.toLowerCase().equals(targetValue.toLowerCase())) {
-		                // Click the button in the last column using the provided button locator
 		                WebElement lastColumnButton = columns.get(columns.size() - 1).findElement(getLocator(buttonLocator));
 		                highlightElement(lastColumnButton);
 		                lastColumnButton.click();
 		                wait(3);
 		                log(targetValue+"Button in the last column is clicked");
-		                return; // Exit the method after clicking the button
+		                return;
 		            }
 	            }
 	        }
 	    }
-	    // If no matching row is found
+	    log("Matching row not found");
+	}
+	
+	public void getLastColumnButtonForFirstColumnValue(String tableLocator, String firstColumnLocator,String columnName, String column2 ,String nameOfSheet, String buttonLocator) {
+	    WebElement table = driver.findElement(getLocator(tableLocator));
+	    List<WebElement> rows = table.findElements(By.tagName("tr"));
+	    List<String> targetValues = readExcelData(columnName, nameOfSheet);
+	    String sheetStatus = readExcelData(column2, nameOfSheet).get(0);
+	    
+	    if (targetValues == null) {
+	        log("Unable to read Excel data");
+	        return;
+	    }
+	    for (WebElement row : rows) {
+	        List<WebElement> columns = row.findElements(By.tagName("td"));
+
+	        if (columns.size() >= 1) { 
+	            WebElement firstColumn = columns.get(0); 
+	            String firstColumnText = firstColumn.getText();
+	            for(String targetValue : targetValues) {	
+		            if (firstColumnText.toLowerCase().equals(targetValue.toLowerCase())) {
+		                WebElement lastColumnButton = columns.get(columns.size() - 1).findElement(getLocator(buttonLocator));
+		                
+		                String status =  lastColumnButton.getAttribute("title");
+		                wait(3);
+		                if(status.equalsIgnoreCase("enable")) {
+		                	if(sheetStatus.equalsIgnoreCase("enable")) {
+		                		highlightElement(lastColumnButton);
+		                		lastColumnButton.click();
+		                	}else if(sheetStatus.equalsIgnoreCase("disable")) {
+		                		test.log(Status.PASS, "Status is already Enabled");
+		                	}
+		                }else if (status.equalsIgnoreCase("disable")) {
+		                	if(sheetStatus.equalsIgnoreCase("enable")) {
+		                		test.log(Status.PASS, "Status is already Disabled");
+		                	}else if (sheetStatus.equalsIgnoreCase("disable")) {
+		                		highlightElement(lastColumnButton);
+		                		lastColumnButton.click();
+		                		
+		                	}
+		                }
+		                log(targetValue+"Button in the last column is clicked");
+		                return;
+		            }
+	            }
+	        }
+	    }
 	    log("Matching row not found");
 	}
 //	public void clickLastColumnButtonForFirstColumnValue(String tableLocator, String firstColumnLocator, String columnName, String sheetName, String buttonLocator) {
@@ -1050,10 +1092,8 @@ public class ValidationKeyword extends GenericKeywords{
 		    String labelXpath = "//label[contains(text(), '" + labelName + "')]";
 		    String mandatoryIconXpath = labelXpath + "/following-sibling::label[text()='*']";
 
-		    WebElement label = driver.findElement(By.xpath(labelXpath));
-		    
-		    // Check if the mandatory icon is present
 		    try {
+		    	WebElement label = driver.findElement(By.xpath(labelXpath));
 		        WebElement mandatoryIcon = driver.findElement(By.xpath(mandatoryIconXpath));
 		        log("Mandatory indicator is present for label: " + labelName);
 		        test.log(Status.PASS, "Mandatory indicator is present for label: " + labelName);

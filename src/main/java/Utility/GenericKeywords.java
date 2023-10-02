@@ -1212,6 +1212,17 @@ public class GenericKeywords {
 	    throw new NoSuchElementException("Row with column value '" + columnValue + "' not found.");
 	}
 	
+	public void gettextFromInputField(String locator) {
+		try {
+			WebElement element = driver.findElement(getLocator(locator));
+			String text = element.getAttribute("value");
+			test.log(Status.PASS, text+" is present");
+		}catch(Exception e) {
+			test.log(Status.FAIL, "Text is not Present in the input");
+		}
+		
+	}
+	
 	
 	
 
