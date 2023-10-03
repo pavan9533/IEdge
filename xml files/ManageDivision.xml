@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<listeners>
+	<listener class-name="Listener.MyTestResult"/>
+</listeners>
+	<test name="Open Backend">
+		<classes>
+			<class name="Backend_TestCases.OpenBackend"/>
+		</classes>
+	</test>
+
+	<test name="Login"> 
+		<classes>
+			<class name="Backend_TestCases.Login"/>
+		</classes>
+	</test>
+	<test name="Manage Division"> 
+		<classes>
+			<class name="Backend_TestCases.ManageDivision">
+				<methods>
+					<include name="openManageDivision"></include>
+					<include name="addDivision"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite> 
