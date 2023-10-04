@@ -10,6 +10,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -266,7 +267,9 @@ public class ValidationKeyword extends GenericKeywords{
 	}
 	
 	public void validateCompareText(String locatorkey ,String expectedText , String expectedText2) {
+		
 		try {
+			waitForElement(Duration.ofSeconds(1), locatorkey);
 			WebElement e = driver.findElement(getLocator(locatorkey));
 			String text=e.getText();
 			

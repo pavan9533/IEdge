@@ -20,6 +20,7 @@
 			<class name="Backend_TestCases.ManageDivision">
 				<methods>
 					<include name="openManageDivision"></include>
+					<include name="validateManageDivision"></include>
 					<include name="addDivision"></include>
 				</methods>
 			</class>

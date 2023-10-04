@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite" class="navigator-link">
-              <span class="suite-name border-failed">Suite</span>
+              <span class="suite-name border-passed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,21 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">5 methods, 1 failed,   4 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Suite">
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="Backend_TestCases.ManageDivision" class="method navigator-link" hash-for-method="addDivision">addDivision</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Suite -->
+                    <span class="method-stats">6 methods,   6 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -115,6 +101,11 @@
                       <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
                     </span>
                     <div class="method-list-content passed suite-Suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="Backend_TestCases.ManageDivision" class="method navigator-link" hash-for-method="addDivision">addDivision</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="Backend_TestCases.Login" class="method navigator-link" hash-for-method="login">login</a> <!-- method navigator-link -->
@@ -135,6 +126,11 @@
                         <a href="#" panel-name="suite-Suite" title="Backend_TestCases.Login" class="method navigator-link" hash-for-method="selectCompany">selectCompany</a> <!-- method navigator-link -->
                       </span>
                       <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="Backend_TestCases.ManageDivision" class="method navigator-link" hash-for-method="validateManageDivision">validateManageDivision</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
                   </li>
                 </ul>
@@ -147,61 +143,6 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">Backend_TestCases.ManageDivision</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="addDivision">
-                  </a> <!-- addDivision -->
-                  <span class="method-name">addDivision</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//div[@role=&apos;listbox&apos;])[3]&quot;}
-  (Session info: chrome=117.0.5938.92)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: &apos;4.11.0&apos;, revision: &apos;040bc5406b&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.2&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [1c034cd3050f7afc10ac2063d13091f4, findElement {using=xpath, value=(//div[@role=&apos;listbox&apos;])[3]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.92, chrome: {chromedriverVersion: 117.0.5938.92 (67649b10b92b..., userDataDir: C:\Users\Admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51826}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51826/devtoo..., se:cdpVersion: 117.0.5938.92, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 1c034cd3050f7afc10ac2063d13091f4
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
-	at Utility.ApplicationKeyword.selectOptionDivUlLi(ApplicationKeyword.java:177)
-	at Backend_TestCases.ManageDivision.addDivision(ManageDivision.java:48)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 32 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-failed -->
-          <div class="suite-Suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">Backend_TestCases.ManageDivision</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="openManageDivision">
-                  </a> <!-- openManageDivision -->
-                  <span class="method-name">openManageDivision</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-passed -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -239,6 +180,35 @@ Session ID: 1c034cd3050f7afc10ac2063d13091f4
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Backend_TestCases.ManageDivision</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="addDivision">
+                  </a> <!-- addDivision -->
+                  <span class="method-name">addDivision</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="openManageDivision">
+                  </a> <!-- openManageDivision -->
+                  <span class="method-name">openManageDivision</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="validateManageDivision">
+                  </a> <!-- validateManageDivision -->
+                  <span class="method-name">validateManageDivision</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -267,6 +237,7 @@ Session ID: 1c034cd3050f7afc10ac2063d13091f4
       &lt;class name=&quot;Backend_TestCases.ManageDivision&quot;&gt;
         &lt;methods&gt;
           &lt;include name=&quot;openManageDivision&quot;/&gt;
+          &lt;include name=&quot;validateManageDivision&quot;/&gt;
           &lt;include name=&quot;addDivision&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- Backend_TestCases.ManageDivision --&gt;
@@ -315,27 +286,31 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(5);
+data.addRows(6);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'addDivision')
 data.setCell(0, 2, 'Backend_TestCases.ManageDivision')
-data.setCell(0, 3, 36672);
+data.setCell(0, 3, 29334);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'selectCompany')
 data.setCell(1, 2, 'Backend_TestCases.Login')
-data.setCell(1, 3, 28597);
+data.setCell(1, 3, 24070);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'login')
 data.setCell(2, 2, 'Backend_TestCases.Login')
-data.setCell(2, 3, 22459);
+data.setCell(2, 3, 21245);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'openManageDivision')
+data.setCell(3, 1, 'validateManageDivision')
 data.setCell(3, 2, 'Backend_TestCases.ManageDivision')
-data.setCell(3, 3, 15599);
+data.setCell(3, 3, 18828);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'openBackend')
-data.setCell(4, 2, 'Backend_TestCases.OpenBackend')
-data.setCell(4, 3, 14618);
+data.setCell(4, 1, 'openManageDivision')
+data.setCell(4, 2, 'Backend_TestCases.ManageDivision')
+data.setCell(4, 3, 14535);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'openBackend')
+data.setCell(5, 2, 'Backend_TestCases.OpenBackend')
+data.setCell(5, 3, 8678);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
@@ -355,16 +330,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">1 ignored method</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">Backend_TestCases.ManageDivision</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">validateManageDivision</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Suite" class="panel">
@@ -375,87 +343,93 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">Backend_TestCases.ManageDivision</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
-                <span class="method-name">beforeSuite(org.testng.TestRunner@7af327e3)</span>
+                <span class="method-name">beforeSuite(org.testng.TestRunner@49986178)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">Backend_TestCases.OpenBackend</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
-                <span class="method-name">beforeTest(org.testng.TestRunner@743d0d44)</span>
-                <span class="method-start">404 ms</span>
+                <span class="method-name">beforeTest(org.testng.TestRunner@10bdfbcc)</span>
+                <span class="method-start">289 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@743d0d44)</span>
-                <span class="method-start">983 ms</span>
+                <span class="method-name">beforeMethod(org.testng.TestRunner@10bdfbcc)</span>
+                <span class="method-start">1180 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">openBackend</span>
-                <span class="method-start">985 ms</span>
+                <span class="method-start">1181 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
-                <span class="method-name">afterTest(org.testng.TestRunner@743d0d44)</span>
-                <span class="method-start">15608 ms</span>
+                <span class="method-name">afterTest(org.testng.TestRunner@10bdfbcc)</span>
+                <span class="method-start">9862 ms</span>
               </div> <!-- configuration-test after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">Backend_TestCases.Login</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
-                <span class="method-name">beforeTest(org.testng.TestRunner@35563e4c)</span>
-                <span class="method-start">16224 ms</span>
+                <span class="method-name">beforeTest(org.testng.TestRunner@25b74370)</span>
+                <span class="method-start">10251 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@35563e4c)</span>
-                <span class="method-start">16238 ms</span>
+                <span class="method-name">beforeMethod(org.testng.TestRunner@25b74370)</span>
+                <span class="method-start">10256 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">login</span>
-                <span class="method-start">16239 ms</span>
+                <span class="method-start">10256 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@35563e4c)</span>
-                <span class="method-start">38704 ms</span>
-              </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">selectCompany</span>
-                <span class="method-start">38706 ms</span>
+                <span class="method-start">31501 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(org.testng.TestRunner@25b74370)</span>
+                <span class="method-start">31501 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="configuration-test after">
-                <span class="method-name">afterTest(org.testng.TestRunner@35563e4c)</span>
-                <span class="method-start">67309 ms</span>
+                <span class="method-name">afterTest(org.testng.TestRunner@25b74370)</span>
+                <span class="method-start">55571 ms</span>
               </div> <!-- configuration-test after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">Backend_TestCases.ManageDivision</div> <!-- chronological-class-name -->
-              <div class="configuration-test before">
-                <span class="method-name">beforeTest(org.testng.TestRunner@7af327e3)</span>
-                <span class="method-start">67392 ms</span>
-              </div> <!-- configuration-test before -->
-              <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@7af327e3)</span>
-                <span class="method-start">67400 ms</span>
-              </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">openManageDivision</span>
-                <span class="method-start">67401 ms</span>
+                <span class="method-start">55602 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@7af327e3)</span>
-                <span class="method-start">83008 ms</span>
+                <span class="method-name">beforeMethod(org.testng.TestRunner@49986178)</span>
+                <span class="method-start">55602 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-test before">
+                <span class="method-name">beforeTest(org.testng.TestRunner@49986178)</span>
+                <span class="method-start">55602 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">validateManageDivision</span>
+                <span class="method-start">70137 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(org.testng.TestRunner@49986178)</span>
+                <span class="method-start">70137 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">addDivision</span>
-                <span class="method-start">83009 ms</span>
+                <span class="method-start">88965 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(org.testng.TestRunner@49986178)</span>
+                <span class="method-start">88965 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="configuration-test after">
-                <span class="method-name">afterTest(org.testng.TestRunner@7af327e3)</span>
-                <span class="method-start">119949 ms</span>
+                <span class="method-name">afterTest(org.testng.TestRunner@49986178)</span>
+                <span class="method-start">118299 ms</span>
               </div> <!-- configuration-test after -->
               <div class="configuration-suite after">
-                <span class="method-name">afterSuite(org.testng.TestRunner@7af327e3)</span>
-                <span class="method-start">120040 ms</span>
+                <span class="method-name">afterSuite(org.testng.TestRunner@49986178)</span>
+                <span class="method-start">118330 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

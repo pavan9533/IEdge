@@ -593,9 +593,9 @@ public class GenericKeywords {
 	
 
 
-	public void waitForElement(Duration time, By locator) {
+	public void waitForElement(Duration time, String locator) {
 	    WebDriverWait wait = new WebDriverWait(driver, time);
-	    wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(getLocator(locator)));
 	}
 
 	

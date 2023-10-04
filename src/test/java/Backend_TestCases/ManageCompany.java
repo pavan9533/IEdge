@@ -156,11 +156,11 @@ public class ManageCompany extends BaseClass{
 		application.click("editCompanyMobileEditFrontOkButton_xpath", "Mobile Version edit Popup Ok Button");
 		application.wait(3);
 		application.validateElementNotDisplayed("editCompanyMobileEditFrontOkButton_xpath", "Mobile Version edit Popup Ok Button");
-		application.validateElementPresent("editCompanyMobileVersionChangeNameStyle_xath" , "Mobile version Change Name Style Button");
+		application.validateElementPresent("editCompanyMobileVersionChangeNameStyle_xpath" , "Mobile version Change Name Style Button");
 		application.validateElementPresent("editCompanyMobileVersionChangeDesignationStyle_xpath", "Mobile version Change Designation Style Button");
 		application.validateElementPresent("editCompanyMobileVersionChangeContactStyle_xpath", "Mobile version Change contact Style Button");
 		application.validateElementPresent("editCompanyMobileVersionChangeAddressStyle_xpath", "Mobile version Change Address Style Button");
-		application.click("editCompanyMobileVersionChangeNameStyle_xath", "Mobile version Change Name Style Button");
+		application.click("editCompanyMobileVersionChangeNameStyle_xpath", "Mobile version Change Name Style Button");
 		application.wait(2);
 		application.validateElementPresent("editCompanyMobileVersionChangeNamePopupTitle_xpath", "Mobile Version Change Name popup Title");
 		application.validateElementPresent("editCompanyMobileVersionChangeNamePopupFontFamilyLabel_xpath", "Mobile Version Change Name popup Font Family Label");
