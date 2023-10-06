@@ -24,16 +24,34 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test name="Copy Company"> 
+	<test name="Validate Manage Company Setting"> 
 		<classes>
 			<class name="Backend_TestCases.ManageCompanySetting">
 				<methods>
-					<include name="adminSetting"></include>
+					<include name="validateManageCompanySettingPage"></include>
+				</methods>
+			</class>
+		</classes>
+	</test><test name="Validate Manage Company form"> 
+		<classes>
+			<class name="Backend_TestCases.ManageCompanySetting">
+				<methods>
+					<include name="validateCreateCompanyForm"></include>
 				</methods>
 			</class>
 		</classes>
 	</test>
+	<test name="Create Company"> 
+		<classes>
+			<class name="Backend_TestCases.ManageCompanySetting">
+				<methods>
+					<include name="createCompany"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
 	
 	
 	

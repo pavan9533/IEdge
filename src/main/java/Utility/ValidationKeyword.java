@@ -160,18 +160,12 @@ public class ValidationKeyword extends GenericKeywords{
 	        WebElement e = driver.findElement(getLocator(locatorkey));
 	        String text = e.getText();
 	        assertTrue(e.isDisplayed()+ text + " Element is present", true);
-//	        assertTrue(e.isDisplayed(), text + " Element is present");
 	        test.log(Status.PASS, text + " Element is present");
-	       // generateScreenshots(text);
 	        
 	    } catch (AssertionError ae) {
 	        test.log(Status.FAIL, ae.getMessage());
-	        //reportFailure("element not Present", false);
 	        generateScreenshots(ae.getMessage());
-	    } //catch (Exception e) {
-//	        test.log(Status.FAIL, "Element not present: " + e.getMessage());
-//	        generateScreenshots();
-//	    }
+	    }
 	}
 	
 	public void validateElementPresent(String locatorKey, String elementName) {
@@ -280,11 +274,11 @@ public class ValidationKeyword extends GenericKeywords{
 			}
 			
 			else {
-				test.log(Status.FAIL, expectedText+"Text is not Displayed");
+				test.log(Status.FAIL, expectedText +" or "+expectedText2+" Text are not Displayed");
 				generateScreenshots(text);
 			}
 		}catch(Exception e) {
-			test.log(Status.FAIL, expectedText+ " is not visible ");
+			test.log(Status.FAIL, expectedText+" or "+expectedText2+ " are not visible ");
 		}
 	}
 	

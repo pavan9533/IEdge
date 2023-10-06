@@ -209,6 +209,76 @@ public class ApplicationKeyword extends ValidationKeyword{
 	        }
 	    }
 	    
+	    public void selectOptionDivUlLi(String locator, String columnName, String sheetName, String range) {
+	        WebElement div = driver.findElement(getLocator(locator));
+	        List<WebElement> ulElements = div.findElements(By.tagName("ul"));
+	        if (!ulElements.isEmpty()) {
+	            WebElement ulElement = ulElements.get(0);
+	            String Ui = ulElement.getText();
+	            log(Ui);
+	            try {
+	                List<WebElement> liElements = ulElement.findElements(By.tagName("li"));
+	                
+	                for (WebElement liElement : liElements) {
+	                    WebElement aElement = liElement.findElement(By.tagName("a"));
+	                    WebElement spanElement = aElement.findElement(By.tagName("span"));
+	                    String spanText = spanElement.getText();
+	                    
+	                    switch (range.toLowerCase()) {
+	                        case "last 7 days":
+	                            if (spanText.equalsIgnoreCase("Last 7 days")) {
+	                            	highlightElement(spanElement);
+	                                spanElement.click();
+	                                wait(2);
+	                                generateScreenshots("Option Clicked.");
+	                                test.log(Status.PASS, spanText + " option is clicked.");
+	                                return;
+	                            }
+	                            break;
+	                        case "last 30 days":
+	                            if (spanText.equalsIgnoreCase("Last 30 days")) {
+	                            	highlightElement(spanElement);
+	                                spanElement.click();
+	                                wait(2);
+	                                generateScreenshots("Option Clicked.");
+	                                test.log(Status.PASS, spanText + " option is clicked.");
+	                                return;
+	                            }
+	                            break;
+	                        case "last 3 months":
+	                            if (spanText.equalsIgnoreCase("Last 3 months")) {
+	                            	highlightElement(spanElement);
+	                                spanElement.click();
+	                                wait(2);
+	                                generateScreenshots("Option Clicked.");
+	                                test.log(Status.PASS, spanText + " option is clicked.");
+	                                return;
+	                            }
+	                            break;
+	                        case "custom date":
+	                            if (spanText.equalsIgnoreCase("Custom Date")) {
+	                            	highlightElement(spanElement);
+	                                spanElement.click();
+	                                wait(2);
+	                                generateScreenshots("Option Clicked.");
+	                                test.log(Status.PASS, spanText + " option is clicked.");
+	                                return;
+	                            }
+	                            break;
+	                    }
+	                }
+	                test.log(Status.FAIL, "Range option not found: " + range);
+	            } catch (NoSuchElementException e) {
+	                test.log(Status.FAIL, "One or more options were not found in the dropdown.");
+	            } catch (Exception e) {
+	                e.printStackTrace();
+	                test.log(Status.FAIL, e);
+	            }
+	        } else {
+	            test.log(Status.FAIL, "Not enough ul elements with the specified class.");
+	        }
+	    }
+	    
 //	    public void selectOptioncompany(String locator, String optionText) {
 //	        try {
 //	            WebElement ulElement = driver.findElement(getLocator(locator));

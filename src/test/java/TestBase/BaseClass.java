@@ -38,10 +38,10 @@ public class BaseClass extends GenericKeywords  {
 	    @BeforeSuite
 	    public void beforeSuite(ITestContext context) throws Exception {
 	    	report = new ExtentReports(); // Initialize the report object
-//	        test = report.createTest("Suite Recording");
-//	        myScreenRecorder = new MyScreenRecorder();
-//	        myScreenRecorder.startRecording("Suite Recording");
-//	        test.log(Status.INFO, "Recording Started");
+	        test = report.createTest("Suite Recording");
+	        myScreenRecorder = new MyScreenRecorder();
+	        myScreenRecorder.startRecording("Suite Recording");
+	        test.log(Status.INFO, "Recording Started");
 	    }
 	
 	   
@@ -113,9 +113,9 @@ public class BaseClass extends GenericKeywords  {
 		application = (ApplicationKeyword) context.getAttribute("app");	
 		if(application!=null)
 		application.quit();
-//		myScreenRecorder.stopRecording();
-//		test.log(Status.INFO, "Recording Stopped");
-//		report.flush();
+		myScreenRecorder.stopRecording();
+		test.log(Status.INFO, "Recording Stopped");
+		report.flush();
 	}
 	
 	

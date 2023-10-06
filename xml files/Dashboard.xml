@@ -30,7 +30,7 @@
         <classes>
             <class name="Backend_TestCases.Dashboard">
                 <methods>
-                    <include name="bulkEmployeeDownload"/>
+                    <include name="validateDashboard"/>
                 </methods>
             </class>
         </classes>

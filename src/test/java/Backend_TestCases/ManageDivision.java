@@ -64,6 +64,7 @@ public class ManageDivision extends BaseClass{
 		application.clickCheckboxBasedOnExcelParameter("addDivisionHideSearchEnginesCheckBox_xpath", "AddDivision_HideSearch", "ManageDivision");
 		application.wait(2);
 		application.click("addDivisionSaveButton_xpath", "Add Division Save Button");
+		application.wait(1);
 		application.validateCompareText("addDivisionPopUp_xpath", "Division has been added successfully", " Division already exist !!");
 	}
 }

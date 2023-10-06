@@ -4,18 +4,18 @@
   <listeners>
     <listener class-name="Listener.MyTestResult"/>
   </listeners>
-  <test thread-count="5" name="Manage Division(failed)">
+  <test thread-count="5" name="Dashboard Bulk Employee Download(failed)">
     <classes>
-      <class name="Backend_TestCases.ManageDivision">
+      <class name="Backend_TestCases.Dashboard">
         <methods>
           <include name="beforeSuite"/>
           <include name="afterTest"/>
-          <include name="addDivision"/>
+          <include name="validateDashboard"/>
           <include name="beforeTest"/>
           <include name="beforeMethod"/>
           <include name="afterSuite"/>
         </methods>
-      </class> <!-- Backend_TestCases.ManageDivision -->
+      </class> <!-- Backend_TestCases.Dashboard -->
     </classes>
-  </test> <!-- Manage Division(failed) -->
+  </test> <!-- Dashboard Bulk Employee Download(failed) -->
 </suite> <!-- Failed suite [Suite] -->
