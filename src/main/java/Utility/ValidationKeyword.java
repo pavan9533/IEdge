@@ -261,9 +261,7 @@ public class ValidationKeyword extends GenericKeywords{
 	}
 	
 	public void validateCompareText(String locatorkey ,String expectedText , String expectedText2) {
-		
 		try {
-			waitForElement(Duration.ofSeconds(1), locatorkey);
 			WebElement e = driver.findElement(getLocator(locatorkey));
 			String text=e.getText();
 			

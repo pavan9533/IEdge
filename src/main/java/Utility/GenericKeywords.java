@@ -442,10 +442,13 @@ public class GenericKeywords {
 	}
 	
 	public void scrollTo(String locator) {
-        WebElement e = driver.findElement(getLocator(locator));
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", e);
-        
+		try {
+			WebElement e = driver.findElement(getLocator(locator));
+	        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+	        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", e);
+		}catch(Exception e) {
+			test.log(Status.FAIL, "Unable to scroll to Element "+e);
+		}
     }
 	
 
@@ -593,9 +596,17 @@ public class GenericKeywords {
 	
 
 
-	public void waitForElement(Duration time, String locator) {
-	    WebDriverWait wait = new WebDriverWait(driver, time);
-	    wait.until(ExpectedConditions.visibilityOfElementLocated(getLocator(locator)));
+	public void waitUntilPresenceOfElement(String locator , Duration  maxDuration , String locatorName) {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, maxDuration);
+			wait.until(ExpectedConditions.presenceOfElementLocated(getLocator(locator)));
+			WebElement e = driver.findElement(getLocator(locator));
+			String text=e.getText();
+			log(text+" is displayed");
+			test.log(Status.PASS, locatorName+" is Visible");
+		}catch(Exception e) {
+			test.log(Status.FAIL, locatorName + "Element not visible within the expected time " +e);
+		}
 	}
 
 	
@@ -1138,30 +1149,22 @@ public class GenericKeywords {
 	    }
 	}
 	public void clickCheckboxBasedOnExcelParameter(String locator, String columnName, String sheetName) {
-	    // Read the parameter value from Excel
 	    String parameter = readExcelData(columnName, sheetName).get(0); // Assuming you retrieve a single value from Excel
-
 	    WebElement checkboxElement = driver.findElement(getLocator(locator));
-
-	    // Check if the checkbox is already selected
 	    boolean isChecked = checkboxElement.isSelected();
 
 	    if (parameter.equalsIgnoreCase("yes")) {
 	        if (!isChecked) {
-	            // Click the checkbox only if it should be checked but isn't
 	            checkboxElement.click();
 	            test.log(Status.PASS, "Checkbox clicked and changed to the Enabled state.");
 	        } else {
-	            // Log that the checkbox is already in the desired state
 	            test.log(Status.PASS, "Checkbox is already in the Enabled state.");
 	        }
 	    } else if (parameter.equalsIgnoreCase("no")) {
 	        if (isChecked) {
-	            // Click the checkbox only if it should be unchecked but is currently checked
 	            checkboxElement.click();
 	            test.log(Status.PASS, "Checkbox clicked and changed to the Disabled state.");
 	        } else {
-	            // Log that the checkbox is already in the desired state
 	            test.log(Status.PASS, "Checkbox is already in the Disabled state.");
 	        }
 	    } else {
