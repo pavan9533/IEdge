@@ -304,14 +304,14 @@ public class ManageDivision extends BaseClass{
 		application.validateElementPresent("mapLinkBackToListButton_xpath", "Map link Back to list Button");
 		application.type("mapLinkUnMappedSearch_xpath", readExcelData("Search_MapLink", "ManageDivision"));
 		application.wait(2);
-		application.clear("mapLinkUnMappedSearch_xpath");
+		application.refreshPage();
 		application.wait(2);
 		try {
-			String Links = application.validateLinksPresent("mapLinksUnMappedList_xpath");
+			String Links = application.validateLinksPresent("mapLinkUnMappedList_xpath");
 			if(Links.isBlank()) {
 				test.log(Status.INFO, "Mapped Categories are empty");
 			}else {
-				application.mapLinks("mapLinksUnMappedList_xpath", "Map_Link", "ManageDivision");
+				application.mapLinks("mapLinkUnMappedList_xpath", "Map_Link", "ManageDivision");
 				application.wait(2);
 			}
 			
@@ -320,11 +320,11 @@ public class ManageDivision extends BaseClass{
 		}
 		application.wait(5);
 		try {
-			String Links = application.validateCategoriesPresent("mapLinkMappedSearch_xpath");
+			String Links = application.validateCategoriesPresent("mapLinkMappedList_xpath");
 			if(Links.isBlank()) {
 				test.log(Status.INFO, "Mapped Links are empty");
 			}else {
-				application.unMapLinks("mapLinkMappedSearch_xpath", "UnMap_Link", "ManageDivision");
+				application.unMapLinks("mapLinkMappedList_xpath", "UnMap_Link", "ManageDivision");
 				application.wait(2);
 			}
 			
@@ -333,6 +333,9 @@ public class ManageDivision extends BaseClass{
 		}
 		application.wait(2);
 		application.scrollTo("mapLinkSaveButton_xpath");
+		application.scrollTo("mapLinkBackToListButton_xpath");
+		application.click("mapLinkBackToListButton_xpath", "Back To List Button");
+		application.waitUntilPresenceOfElement("manageDivisonTable_xpath", Duration.ofSeconds(10), "Manage Division Table");
 	}
 	
 	@Test
@@ -348,13 +351,13 @@ public class ManageDivision extends BaseClass{
 		application.type("mapLinkUnMappedSearch_xpath", readExcelData("Search_MapLink", "ManageDivision"));
 		application.wait(2);
 		application.clear("mapLinkUnMappedSearch_xpath");
-		application.wait(2);
+		application.wait(5);
 		try {
-			String Links = application.validateLinksPresent("mapLinksUnMappedList_xpath");
+			String Links = application.validateLinksPresent("mapLinkUnMappedList_xpath");
 			if(Links.isBlank()) {
 				test.log(Status.INFO, "Mapped Categories are empty");
 			}else {
-				application.mapLinks("mapLinksUnMappedList_xpath", "Map_Link", "ManageDivision");
+				application.mapLinks("mapLinkUnMappedList_xpath", "Map_Link", "ManageDivision");
 				application.wait(2);
 			}
 			
@@ -364,7 +367,7 @@ public class ManageDivision extends BaseClass{
 		application.wait(2);
 		application.scrollTo("mapLinkSaveButton_xpath");
 		application.click("mapLinkSaveButton_xpath", "Manage Links Save Button");
-		application.wait(1);
+		application.waitUntilPresenceOfElement("mapLinksSavePopUp_xpath", Duration.ofSeconds(5), "Map links PopUp");
 		application.validateCompareText("mapLinksSavePopUp_xpath", "Link mapped with Division successfully.");
 	}
 	@Test
@@ -395,8 +398,49 @@ public class ManageDivision extends BaseClass{
 		}
 		application.wait(2);
 		application.scrollTo("mapLinkSaveButton_xpath");
+		application.wait(2);
 		application.click("mapLinkSaveButton_xpath", "Manage Links Save Button");
-		application.wait(1);
+		application.waitUntilPresenceOfElement("mapLinksSavePopUp_xpath", Duration.ofSeconds(5), "Map links PopUp");
 		application.validateCompareText("mapLinksSavePopUp_xpath", "Link mapped with Division successfully.");
+	}
+	@Test
+	public void validateDeleteDivision() {
+		application.type("manageDivisionSearch_xpath", readExcelData("Delete_Division", "ManageDivision"));
+		application.wait(2);
+		application.clickLastColumnButtonForFirstColumnValue("manageDivisonTable_xpath", "manageDivisionFirstColumn_xpath", 
+				"Delete_Division", "ManageDivision", "manageDivisionDeleteButton_xpath");
+		application.wait(5);
+		try {
+			WebElement deletePopUp = null;
+			WebElement divisionAlreadyMapped = null;
+			try {
+				deletePopUp = driver.findElement(getLocator("deleteDivisionPopUpText_xpath"));
+			}catch(Exception e) {
+				test.log(Status.INFO, "Delete pop Up Is not displayed.");
+				generateScreenshots("Delete pop up");
+			}
+			try {
+				application.wait(3);
+				divisionAlreadyMapped = driver.findElement(getLocator("deleteDivisionAlreadyMappedText_xpath"));
+			}catch(Exception e) {
+				test.log(Status.INFO, "Delete Division pop Up already mapped Is not displayed.");
+				generateScreenshots("Delete pop up");
+			}
+			if(deletePopUp.isDisplayed()) {
+				application.validateElementPresent("deleteDivisionPopUpText_xpath", "Delete Division PopUp text");
+				application.validateElementPresent("deleteDivisionPopUpCloseButton_xpath", "Delete Division PopUp close button");
+				application.validateElementPresent("deleteDivisionPopUpCancelButton_xpath", "Delete Division PopUp Cancel button");
+				application.validateElementPresent("deleteDivisionPopUpOkButton_xpath", "Delete Division PopUp Ok button");
+				application.click("deleteDivisionPopUpCancelButton_xpath", "Delete Division Cancel Button");
+			}else if(divisionAlreadyMapped.isDisplayed()) {
+				application.validateElementPresent("deleteDivisionAlreadyMappedText_xpath", "Delete Divisoin already Mapped text");
+				application.validateElementPresent("deleteDivisionAlreadyMappedDivisionName_xpath`", "Division Name in Delete division popup");
+				application.validateElementPresent("deleteDivisionAlreadyMappedSaveButton_xpath", "Delete Division Already Mapped save button");
+				application.wait(2);
+				application.click("deleteDivisionAlreadyMappedSaveButton_xpath", "Delete Division AlreadyMapped popup Save button");
+			}
+		}catch(Exception e) {
+			test.log(Status.FAIL, e);
+		}
 	}
 }

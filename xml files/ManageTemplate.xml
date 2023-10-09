@@ -16,10 +16,11 @@
 	</test>
 	<test name="Manage Division"> 
 		<classes>
-			<class name="Backend_TestCases.ManageDivision">
+			<class name="Backend_TestCases.ManageTemplateMap">
 				<methods>
-					<include name="openManageDivision"></include>
-					<include name="validateDeleteDivision"></include>
+					<include name="openManageTemplate"></include>
+					<include name="validateManageTemplateMap"></include>
+					<include name="addtemplate"></include>
 				</methods>
 			</class>
 		</classes>
