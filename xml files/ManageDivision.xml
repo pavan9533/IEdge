@@ -13,14 +13,16 @@
 	<test name="Login"> 
 		<classes>
 			<class name="Backend_TestCases.Login"/>
-		</classes>
+		</classes> 
 	</test>
 	<test name="Manage Division"> 
 		<classes>
 			<class name="Backend_TestCases.ManageDivision">
 				<methods>
 					<include name="openManageDivision"></include>
-					<include name="editDivision"></include>
+					<include name="validateMapLinks"></include>
+					<include name="mapLinks"></include>
+					<include name="UnMapLinks"></include>
 				</methods>
 			</class>
 		</classes>

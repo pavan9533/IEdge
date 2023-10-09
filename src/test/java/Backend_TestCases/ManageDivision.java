@@ -69,7 +69,13 @@ public class ManageDivision extends BaseClass{
 		application.click("addDivisionSaveButton_xpath", "Add Division Save Button");
 		application.waitUntilPresenceOfElement("addDivisionPopUp_xpath", Duration.ofSeconds(5), "Add Division PopUp");
 		try {
-			application.click("addDivisionClosePopUpButton_xpath", "Add Division Popup Close button");
+			WebElement closeButton = driver.findElement(getLocator("addDivisionClosePopUpButton_xpath"));
+			if(closeButton.isDisplayed()) {
+				application.click("addDivisionClosePopUpButton_xpath", "Add Division Popup Close button");
+			}else {
+				test.log(Status.INFO, "PopUp Is Closed");
+			}
+			
 		}catch(Exception e) {
 			test.log(Status.INFO, "PopUp Is Closed");
 		}
@@ -173,27 +179,224 @@ public class ManageDivision extends BaseClass{
 		application.scrollTo("editDivisionSaveButton_xpath");
 		application.click("editDivisionSaveButton_xpath", "Edit division Save button");
 		application.waitUntilPresenceOfElement("editDivisionPopUp_xpath", Duration.ofSeconds(5), "Update Division PopUp");
-		application.validateCompareText("editDivisionPopUp_xpath", "Division has been updated successfully", "");
+		application.validateCompareText("editDivisionPopUp_xpath", "Division has been updated successfully", " Division already exist !!");
+	}
+	
+	@Test
+	
+	public void validateMapCategory() {
+		application.type("manageDivisionSearch_xpath", readExcelData("Map_Division", "ManageDivision"));
+		application.wait(2);
+		application.clickLastColumnButtonForFirstColumnValue("manageDivisonTable_xpath", "manageDivisionFirstColumn_xpath", 
+				"Map_Division", "ManageDivision", "manageDivisionLastColumnMapCategoryButton_xpath");
+		application.waitUntilPresenceOfElement("mapCategoryTitle_xpath", Duration.ofSeconds(10), "Map Category Title");
+		application.validateElementPresent("mapCategoryHeading_xpath", "Manage Categoy Heading.");
+		application.wait(5);
+		application.validateElementPresent("mapCategoryBackToListButton_xpath", "Map Category Back to list Button");
+		application.validateContainsText("mapCategoryHeading_xpath", "Map Category");
+		try {
+			String categories = application.validateCategoriesPresent("mapCategoryUnmappedList_xpath");
+			if(categories.isBlank()) {
+				test.log(Status.INFO, "Unmapped Categories are empty");
+			}else {
+				application.mapCategories("mapCategoryUnmappedList_xpath", "Map_Categories", "ManageDivision");
+				application.wait(2);
+			}
+		}catch(Exception e) {
+			test.log(Status.INFO, "UnMapped Categories are empty");
+		}
+		try {
+			String categories = application.validateCategoriesPresent("mapCategoryMappedList_xpath");
+			if(categories.isBlank()) {
+				test.log(Status.INFO, "Mapped Categories are empty");
+			}else {
+				application.unMapCategories("mapCategoryMappedList_xpath", "UnMap_Categories", "ManageDivision");
+				application.wait(2);
+			}
+		}catch(Exception e) {
+			test.log(Status.INFO, "Mapped Categories are empty");
+		}
+		application.type("mapCategorySearchUnmapped_xpath", readExcelData("Search_UnMapCategories_Division", "ManageDivision"));
+		application.wait(2);
+		application.type("mapCategorySearchMapped_xpath", readExcelData("Search_MapCategories_Division", "ManageDivision"));
+		application.wait(2);
+		application.scrollTo("mapCategorySaveButton_xpath");
+		application.wait(2);
+		application.scrollTo("mapCategoryBackToListButton_xpath");
+		application.click("mapCategoryBackToListButton_xpath", "Back To List Button");
+		application.wait(3);
 	}
 	
 	@Test
 	
 	public void mapCategory() {
-		application.type("manageDivisionSearch_xpath", readExcelData("Map_Division", "ManageDivision"));
+		application.type("manageDivisionSearch_xpath", readExcelData("Search_MapCategories_Division", "ManageDivision"));
 		application.wait(2);
 		application.clickLastColumnButtonForFirstColumnValue("manageDivisonTable_xpath", "manageDivisionFirstColumn_xpath", 
-				"Edit_Division", "ManageDivision", "manageDivisionLastColumnMapCategoryButton_xpath");
+				"Map_Division", "ManageDivision", "manageDivisionLastColumnMapCategoryButton_xpath");
 		application.waitUntilPresenceOfElement("mapCategoryTitle_xpath", Duration.ofSeconds(10), "Map Category Title");
 		application.validateElementPresent("mapCategoryHeading_xpath", "Manage Categoy Heading.");
+		application.wait(5);
+		application.validateElementPresent("mapCategoryBackToListButton_xpath", "Map Category Back to list Button");
 		application.validateContainsText("mapCategoryHeading_xpath", "Map Category");
-		List<WebElement> unMapped = null;
 		try {
-			unMapped = driver.findElements(getLocator("mapCategoryUnmapped_xpath"));
+			String categories = application.validateCategoriesPresent("mapCategoryUnmappedList_xpath");
+			if(categories.isBlank()) {
+				test.log(Status.INFO, "Unmapped Categories are empty");
+			}else {
+				application.mapCategories("mapCategoryUnmappedList_xpath", "Map_Categories", "ManageDivision");
+				application.wait(2);
+			}
+			
 		}catch(Exception e) {
 			test.log(Status.INFO, "UnMapped Categories are empty");
 		}
+		application.type("mapCategorySearchUnmapped_xpath", readExcelData("Search_UnMapCategories", "ManageDivision"));
+		application.wait(2);
+		application.type("mapCategorySearchMapped_xpath", readExcelData("Search_MapCategories", "ManageDivision"));
+		application.wait(2);
+		application.scrollTo("mapCategorySaveButton_xpath");
+		application.click("mapCategorySaveButton_xpath", "Map Category Save Button");
 		
+	}
+	@Test
+	
+	public void unMapCategory() {
+		application.type("manageDivisionSearch_xpath", readExcelData("Search_UnMapCategories_Division", "ManageDivision"));
+		application.wait(2);
+		application.clickLastColumnButtonForFirstColumnValue("manageDivisonTable_xpath", "manageDivisionFirstColumn_xpath", 
+				"Map_Division", "ManageDivision", "manageDivisionLastColumnMapCategoryButton_xpath");
+		application.waitUntilPresenceOfElement("mapCategoryTitle_xpath", Duration.ofSeconds(10), "Map Category Title");
+		application.validateElementPresent("mapCategoryHeading_xpath", "Manage Categoy Heading.");
+		application.wait(5);
+		application.validateElementPresent("mapCategoryBackToListButton_xpath", "Map Category Back to list Button");
+		application.validateContainsText("mapCategoryHeading_xpath", "Map Category");
+		try {
+			String categories = application.validateCategoriesPresent("mapCategoryMappedList_xpath");
+			if(categories.isBlank()) {
+				test.log(Status.INFO, "Mapped Categories are empty");
+			}else {
+				application.unMapCategories("mapCategoryMappedList_xpath", "UnMap_Categories", "ManageDivision");
+				application.wait(2);
+			}
+			
+		}catch(Exception e) {
+			test.log(Status.INFO, "Mapped Categories are empty");
+		}
+		application.type("mapCategorySearchUnmapped_xpath", readExcelData("Search_UnMapCategories", "ManageDivision"));
+		application.wait(2);
+		application.type("mapCategorySearchMapped_xpath", readExcelData("Search_MapCategories", "ManageDivision"));
+		application.wait(2);
+		application.scrollTo("mapCategorySaveButton_xpath");
+		application.click("mapCategorySaveButton_xpath", "Map Category Save Button");
 		
-		
+	}
+	
+	@Test
+	public void validateMapLinks() {
+		application.type("manageDivisionSearch_xpath", readExcelData("Search_MapLink_Division", "ManageDivision"));
+		application.wait(2);
+		application.clickLastColumnButtonForFirstColumnValue("manageDivisonTable_xpath", "manageDivisionFirstColumn_xpath", 
+				"Map_Division", "ManageDivision", "manageDivisionLastColumnMapLinkButton_xpath");
+		application.waitUntilPresenceOfElement("mapLinkTitle_xpath", Duration.ofSeconds(10), "Map Link Title");
+		application.validateElementPresent("mapLinkHeading_xpath", "Map Link Heading.");
+		application.wait(5);
+		application.validateElementPresent("mapLinkBackToListButton_xpath", "Map link Back to list Button");
+		application.type("mapLinkUnMappedSearch_xpath", readExcelData("Search_MapLink", "ManageDivision"));
+		application.wait(2);
+		application.clear("mapLinkUnMappedSearch_xpath");
+		application.wait(2);
+		try {
+			String Links = application.validateLinksPresent("mapLinksUnMappedList_xpath");
+			if(Links.isBlank()) {
+				test.log(Status.INFO, "Mapped Categories are empty");
+			}else {
+				application.mapLinks("mapLinksUnMappedList_xpath", "Map_Link", "ManageDivision");
+				application.wait(2);
+			}
+			
+		}catch(Exception e) {
+			test.log(Status.INFO, "Mapped Links are empty");
+		}
+		application.wait(5);
+		try {
+			String Links = application.validateCategoriesPresent("mapLinkMappedSearch_xpath");
+			if(Links.isBlank()) {
+				test.log(Status.INFO, "Mapped Links are empty");
+			}else {
+				application.unMapLinks("mapLinkMappedSearch_xpath", "UnMap_Link", "ManageDivision");
+				application.wait(2);
+			}
+			
+		}catch(Exception e) {
+			test.log(Status.INFO, "Mapped Links are empty");
+		}
+		application.wait(2);
+		application.scrollTo("mapLinkSaveButton_xpath");
+	}
+	
+	@Test
+	public void mapLinks() {
+		application.type("manageDivisionSearch_xpath", readExcelData("Search_MapLink_Division", "ManageDivision"));
+		application.wait(2);
+		application.clickLastColumnButtonForFirstColumnValue("manageDivisonTable_xpath", "manageDivisionFirstColumn_xpath", 
+				"Map_Division", "ManageDivision", "manageDivisionLastColumnMapLinkButton_xpath");
+		application.waitUntilPresenceOfElement("mapLinkTitle_xpath", Duration.ofSeconds(10), "Map Link Title");
+		application.validateElementPresent("mapLinkHeading_xpath", "Map Link Heading.");
+		application.wait(5);
+		application.validateElementPresent("mapLinkBackToListButton_xpath", "Map link Back to list Button");
+		application.type("mapLinkUnMappedSearch_xpath", readExcelData("Search_MapLink", "ManageDivision"));
+		application.wait(2);
+		application.clear("mapLinkUnMappedSearch_xpath");
+		application.wait(2);
+		try {
+			String Links = application.validateLinksPresent("mapLinksUnMappedList_xpath");
+			if(Links.isBlank()) {
+				test.log(Status.INFO, "Mapped Categories are empty");
+			}else {
+				application.mapLinks("mapLinksUnMappedList_xpath", "Map_Link", "ManageDivision");
+				application.wait(2);
+			}
+			
+		}catch(Exception e) {
+			test.log(Status.INFO, "Mapped Links are empty");
+		}
+		application.wait(2);
+		application.scrollTo("mapLinkSaveButton_xpath");
+		application.click("mapLinkSaveButton_xpath", "Manage Links Save Button");
+		application.wait(1);
+		application.validateCompareText("mapLinksSavePopUp_xpath", "Link mapped with Division successfully.");
+	}
+	@Test
+	public void UnMapLinks() {
+		application.type("manageDivisionSearch_xpath", readExcelData("Search_UnMapLink_Division", "ManageDivision"));
+		application.wait(2);
+		application.clickLastColumnButtonForFirstColumnValue("manageDivisonTable_xpath", "manageDivisionFirstColumn_xpath", 
+				"Map_Division", "ManageDivision", "manageDivisionLastColumnMapLinkButton_xpath");
+		application.waitUntilPresenceOfElement("mapLinkTitle_xpath", Duration.ofSeconds(10), "Map Link Title");
+		application.validateElementPresent("mapLinkHeading_xpath", "Map Link Heading.");
+		application.wait(5);
+		application.validateElementPresent("mapLinkBackToListButton_xpath", "Map link Back to list Button");
+		application.type("mapLinkMappedSearch_xpath", readExcelData("Search_UnMapLink", "ManageDivision"));
+		application.wait(2);
+		application.clear("mapLinkMappedSearch_xpath");
+		application.wait(2);
+		try {
+			String Links = application.validateLinksPresent("mapLinkMappedList_xpath");
+			if(Links.isBlank()) {
+				test.log(Status.INFO, "Mapped Links are empty");
+			}else {
+				application.unMapLinks("mapLinkMappedList_xpath", "UnMap_Link", "ManageDivision");
+				application.wait(2);
+			}
+			
+		}catch(Exception e) {
+			test.log(Status.INFO, "Mapped Links are empty");
+		}
+		application.wait(2);
+		application.scrollTo("mapLinkSaveButton_xpath");
+		application.click("mapLinkSaveButton_xpath", "Manage Links Save Button");
+		application.wait(1);
+		application.validateCompareText("mapLinksSavePopUp_xpath", "Link mapped with Division successfully.");
 	}
 }
