@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">6 methods,   6 passed</span>
+                    <span class="method-stats">5 methods,   5 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -101,11 +101,6 @@
                       <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
                     </span>
                     <div class="method-list-content passed suite-Suite">
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="Backend_TestCases.ManageTemplateMap" class="method navigator-link" hash-for-method="addtemplate">addtemplate</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="Backend_TestCases.Login" class="method navigator-link" hash-for-method="login">login</a> <!-- method navigator-link -->
@@ -128,7 +123,7 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="Backend_TestCases.ManageTemplateMap" class="method navigator-link" hash-for-method="validateManageTemplateMap">validateManageTemplateMap</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="Backend_TestCases.ManageTemplateMap" class="method navigator-link" hash-for-method="templateMapDivision">templateMapDivision</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -188,13 +183,6 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="addtemplate">
-                  </a> <!-- addtemplate -->
-                  <span class="method-name">addtemplate</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
                   <a name="openManageTemplate">
                   </a> <!-- openManageTemplate -->
                   <span class="method-name">openManageTemplate</span>
@@ -202,9 +190,9 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="validateManageTemplateMap">
-                  </a> <!-- validateManageTemplateMap -->
-                  <span class="method-name">validateManageTemplateMap</span>
+                  <a name="templateMapDivision">
+                  </a> <!-- templateMapDivision -->
+                  <span class="method-name">templateMapDivision</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -237,8 +225,7 @@
       &lt;class name=&quot;Backend_TestCases.ManageTemplateMap&quot;&gt;
         &lt;methods&gt;
           &lt;include name=&quot;openManageTemplate&quot;/&gt;
-          &lt;include name=&quot;validateManageTemplateMap&quot;/&gt;
-          &lt;include name=&quot;addtemplate&quot;/&gt;
+          &lt;include name=&quot;templateMapDivision&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- Backend_TestCases.ManageTemplateMap --&gt;
     &lt;/classes&gt;
@@ -286,36 +273,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(6);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'addtemplate')
+data.setCell(0, 1, 'templateMapDivision')
 data.setCell(0, 2, 'Backend_TestCases.ManageTemplateMap')
-data.setCell(0, 3, 68510);
+data.setCell(0, 3, 48015);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'login')
+data.setCell(1, 1, 'selectCompany')
 data.setCell(1, 2, 'Backend_TestCases.Login')
-data.setCell(1, 3, 24185);
+data.setCell(1, 3, 24168);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'selectCompany')
+data.setCell(2, 1, 'login')
 data.setCell(2, 2, 'Backend_TestCases.Login')
-data.setCell(2, 3, 24033);
+data.setCell(2, 3, 21631);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'openManageTemplate')
 data.setCell(3, 2, 'Backend_TestCases.ManageTemplateMap')
-data.setCell(3, 3, 13973);
+data.setCell(3, 3, 14586);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'openBackend')
 data.setCell(4, 2, 'Backend_TestCases.OpenBackend')
-data.setCell(4, 3, 8998);
-data.setCell(5, 0, 5)
-data.setCell(5, 1, 'validateManageTemplateMap')
-data.setCell(5, 2, 'Backend_TestCases.ManageTemplateMap')
-data.setCell(5, 3, 4214);
+data.setCell(4, 3, 7815);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -330,9 +313,20 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">3 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">Backend_TestCases.ManageTemplateMap</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">validateManageTemplateMap</span>
+                <br/>
+                <span class="ignored-method-name">editTemplate</span>
+                <br/>
+                <span class="ignored-method-name">addtemplate</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Suite" class="panel">
@@ -343,93 +337,85 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">Backend_TestCases.ManageTemplateMap</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
-                <span class="method-name">beforeSuite(org.testng.TestRunner@2729bb71)</span>
+                <span class="method-name">beforeSuite(org.testng.TestRunner@72b40f87)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">Backend_TestCases.OpenBackend</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
-                <span class="method-name">beforeTest(org.testng.TestRunner@55071497)</span>
-                <span class="method-start">663 ms</span>
+                <span class="method-name">beforeTest(org.testng.TestRunner@2475fba3)</span>
+                <span class="method-start">756 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@55071497)</span>
-                <span class="method-start">980 ms</span>
+                <span class="method-name">beforeMethod(org.testng.TestRunner@2475fba3)</span>
+                <span class="method-start">1226 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">openBackend</span>
-                <span class="method-start">982 ms</span>
+                <span class="method-start">1228 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
-                <span class="method-name">afterTest(org.testng.TestRunner@55071497)</span>
-                <span class="method-start">9984 ms</span>
+                <span class="method-name">afterTest(org.testng.TestRunner@2475fba3)</span>
+                <span class="method-start">9047 ms</span>
               </div> <!-- configuration-test after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">Backend_TestCases.Login</div> <!-- chronological-class-name -->
-              <div class="configuration-test before">
-                <span class="method-name">beforeTest(org.testng.TestRunner@10d98940)</span>
-                <span class="method-start">10320 ms</span>
-              </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">login</span>
-                <span class="method-start">10326 ms</span>
+                <span class="method-start">9395 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@10d98940)</span>
-                <span class="method-start">10326 ms</span>
+                <span class="method-name">beforeMethod(org.testng.TestRunner@19bf47fc)</span>
+                <span class="method-start">9395 ms</span>
               </div> <!-- configuration-method before -->
+              <div class="configuration-test before">
+                <span class="method-name">beforeTest(org.testng.TestRunner@19bf47fc)</span>
+                <span class="method-start">9395 ms</span>
+              </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">selectCompany</span>
-                <span class="method-start">34513 ms</span>
+                <span class="method-start">31026 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@10d98940)</span>
-                <span class="method-start">34513 ms</span>
+                <span class="method-name">beforeMethod(org.testng.TestRunner@19bf47fc)</span>
+                <span class="method-start">31026 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-test after">
-                <span class="method-name">afterTest(org.testng.TestRunner@10d98940)</span>
-                <span class="method-start">58547 ms</span>
+                <span class="method-name">afterTest(org.testng.TestRunner@19bf47fc)</span>
+                <span class="method-start">55194 ms</span>
               </div> <!-- configuration-test after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">Backend_TestCases.ManageTemplateMap</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
-                <span class="method-name">beforeTest(org.testng.TestRunner@2729bb71)</span>
-                <span class="method-start">58575 ms</span>
+                <span class="method-name">beforeTest(org.testng.TestRunner@72b40f87)</span>
+                <span class="method-start">55210 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">openManageTemplate</span>
-                <span class="method-start">58578 ms</span>
+                <span class="method-start">55225 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@2729bb71)</span>
-                <span class="method-start">58578 ms</span>
+                <span class="method-name">beforeMethod(org.testng.TestRunner@72b40f87)</span>
+                <span class="method-start">55225 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@2729bb71)</span>
-                <span class="method-start">72552 ms</span>
+                <span class="method-name">beforeMethod(org.testng.TestRunner@72b40f87)</span>
+                <span class="method-start">69812 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">validateManageTemplateMap</span>
-                <span class="method-start">72553 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@2729bb71)</span>
-                <span class="method-start">76768 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">addtemplate</span>
-                <span class="method-start">76769 ms</span>
+                <span class="method-name">templateMapDivision</span>
+                <span class="method-start">69813 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
-                <span class="method-name">afterTest(org.testng.TestRunner@2729bb71)</span>
-                <span class="method-start">145280 ms</span>
+                <span class="method-name">afterTest(org.testng.TestRunner@72b40f87)</span>
+                <span class="method-start">117828 ms</span>
               </div> <!-- configuration-test after -->
               <div class="configuration-suite after">
-                <span class="method-name">afterSuite(org.testng.TestRunner@2729bb71)</span>
-                <span class="method-start">145311 ms</span>
+                <span class="method-name">afterSuite(org.testng.TestRunner@72b40f87)</span>
+                <span class="method-start">117859 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

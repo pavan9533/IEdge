@@ -34,13 +34,13 @@ public class ManageLicensee extends BaseClass{
 		openManageLicensee();
 		application.validateElementPresentText("showEntriesFilter_xpath", "Number of entries filter");
 		application.wait(3);
-	    List<String> NoOfLicenseeFilter = application.getTextFromExcel("LicenseePerPage", "CreateLicensee"); 
+	    List<String> NoOfLicenseeFilter = application.getTextFromExcel("LicenseePerPage", "ManageLicensee"); 
 	    if (NoOfLicenseeFilter.isEmpty()) {
 	        test.log(Status.FAIL, "Language is not defined in the test data sheet.");
 	        application.wait(5);
 	        return;
 	    }else {
-	    	application.selectFromDown("showEntriesFilter_xpath", "LicenseePerPage", "CreateLicensee");
+	    	application.selectFromDown("showEntriesFilter_xpath", "LicenseePerPage", "ManageLicensee");
 	    	test.log(Status.PASS, "filter sort changed to "+NoOfLicenseeFilter);
 	    	generateScreenshots("Licensee Per Page Filers");
 	    }
@@ -64,16 +64,16 @@ public class ManageLicensee extends BaseClass{
 		application.validateFieldRequiredErrors("createLicenseeNameFieldRequiredText_xpath" , "createLicenseeCompanyDomainFieldRequiredText_xpath",
 				"createLicenseeFromDateFieldRequiredText_xpath" , "createLicenseeToDateFieldRequiredText_xpath",
 				"createLicenseeNoOfCardsFieldRequiredText_xpath");
-		application.type("createLicenseeName_xpath", readExcelData("LicenseeName", "CreateLicensee"));
+		application.type("createLicenseeName_xpath", readExcelData("LicenseeName", "ManageLicensee"));
 		application.wait(2);
 		application.click("createLicenseeSaveButton_xpath", "Create Licensee Save Button");
 		application.validateErrorNotDisplayed("createLicenseeNameFieldRequiredText_xpath" , "Licensee Name");
-		application.type("createLicenseeDomain_xpath", readExcelData("InvalidCompanyDomain", "CreateLicensee"));
+		application.type("createLicenseeDomain_xpath", readExcelData("InvalidCompanyDomain", "ManageLicensee"));
 		application.wait(2);
 		application.click("createLicenseeSaveButton_xpath", "Create Licensee Save Button");
 		application.validateError("createLicenseeInvalidDomain_xpath","Please enter valid domain name");
 		application.clear("createLicenseeDomain_xpath");
-		application.type("createLicenseeDomain_xpath", readExcelData("ValidCompanyDomain", "CreateLicensee"));
+		application.type("createLicenseeDomain_xpath", readExcelData("ValidCompanyDomain", "ManageLicensee"));
 		application.wait(2);
 		application.click("createLicenseeSaveButton_xpath", "Create Licensee Save Button");
 		application.validateErrorNotDisplayed("createLicenseeDulplicateDomain_xpath" , "Duplicate domain error");
@@ -84,11 +84,11 @@ public class ManageLicensee extends BaseClass{
 		application.wait(2);
 		application.click("createLicenseeSaveButton_xpath", "Create Licensee Save Button");
 		application.validateErrorNotDisplayed("createLicenseeFromDateFieldRequiredText_xpath", "Start date");
-		application.populateDatesFromExcel("createLicenseeToDate_xpath", "EndDate", "CreateLicensee");
+		application.populateDatesFromExcel("createLicenseeToDate_xpath", "EndDate", "ManageLicensee");
 		application.wait(2);
 		application.click("createLicenseeSaveButton_xpath", "Create Licensee Save Button");
 		application.validateErrorNotDisplayed("createLicenseeToDateFieldRequiredText_xpath", "To Date");
-		application.type("createLicenseeNoOfCards_xpath", readExcelData("NoOfCards", "CreateLicensee"));
+		application.type("createLicenseeNoOfCards_xpath", readExcelData("NoOfCards", "ManageLicensee"));
 		application.wait(2);
 		application.click("createLicenseeSaveButton_xpath", "Create Licensee Save Button");
 		application.validateErrorNotDisplayed("createLicenseeNoOfCardsFieldRequiredText_xpath", "Number of cards");

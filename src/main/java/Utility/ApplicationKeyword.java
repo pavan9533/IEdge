@@ -785,8 +785,8 @@ public class ApplicationKeyword extends ValidationKeyword{
 				   test.log(Status.INFO , "Unable to map");
 			   }
 		   }catch(Exception e) {
-			   test.log(Status.FAIL, "Map Links left block is not visible. "+ e);
-			   generateScreenshots("Map Links");
+			   test.log(Status.FAIL, "Map left block is not visible. "+ e);
+			   generateScreenshots("Mapping");
 		   }
 	   }
 
@@ -821,8 +821,8 @@ public class ApplicationKeyword extends ValidationKeyword{
 				   test.log(Status.INFO , "Unable to UnMap");
 			   }
 		   }catch(Exception e) {
-			   test.log(Status.FAIL, "Map Links right block is not visible. "+ e);
-			   generateScreenshots("Map Links");
+			   test.log(Status.FAIL, "Map right block is not visible. "+ e);
+			   generateScreenshots("Mapping");
 		   }
 	   }
 	   

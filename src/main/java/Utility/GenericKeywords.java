@@ -600,9 +600,6 @@ public class GenericKeywords {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, maxDuration);
 			wait.until(ExpectedConditions.presenceOfElementLocated(getLocator(locator)));
-			WebElement e = driver.findElement(getLocator(locator));
-			String text=e.getText();
-			log(text+" is displayed");
 			test.log(Status.PASS, locatorName+" is Visible");
 		}catch(Exception e) {
 			test.log(Status.FAIL, locatorName + "Element not visible within the expected time " +e);
@@ -884,10 +881,60 @@ public class GenericKeywords {
 //	    return data;
 //	}
 	
+//	public List<String> readExcelData(String columnName, String nameOfSheet) {
+//	    String filePath = System.getProperty("user.dir") + "//Excel//data.xlsx";
+//	    String sheetName = nameOfSheet;
+//	    int startingRowIndex = 1; // Assuming the data starts from the second row (row index 1)
+//
+//	    List<String> data = new ArrayList<>();
+//
+//	    FileInputStream fileInputStream = null;
+//	    Workbook workbook = null;
+//
+//	    try {
+//	        fileInputStream = new FileInputStream(filePath);
+//	        workbook = new XSSFWorkbook(fileInputStream);
+//
+//	        Sheet sheet = workbook.getSheet(sheetName);
+//
+//	        // Find the column index for the specified column name
+//	        Row headerRow = sheet.getRow(0);
+//	        int columnIndex = -1;
+//	        for (Cell cell : headerRow) {
+//	            if (cell.getStringCellValue().equalsIgnoreCase(columnName)) {
+//	                columnIndex = cell.getColumnIndex();
+//	                break;
+//	            }
+//	        }
+//
+//	        // Retrieve the data from the specified column
+//	        int lastRowIndex = sheet.getLastRowNum();
+//	        for (int rowIndex = startingRowIndex; rowIndex <= lastRowIndex; rowIndex++) {
+//	            Row dataRow = sheet.getRow(rowIndex);
+//	            if (dataRow != null) {
+//	                Cell cell = dataRow.getCell(columnIndex, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
+//	                if (cell != null) {
+//	                    cell.setCellType(CellType.STRING);
+//	                    data.add(cell.getStringCellValue());
+//	                } else {
+//	                    data.add(""); // Add an empty string for blank cells
+//	                }
+//	            }
+//	        }
+//	    } catch (Exception e) {
+//	        e.printStackTrace();
+//	        test.log(Status.FAIL, e.getMessage());
+//	        return null;
+//	    } 
+//	  
+//
+//	    return data;
+//	}
+	
 	public List<String> readExcelData(String columnName, String nameOfSheet) {
 	    String filePath = System.getProperty("user.dir") + "//Excel//data.xlsx";
 	    String sheetName = nameOfSheet;
-	    int startingRowIndex = 1; // Assuming the data starts from the second row (row index 1)
+	    int startingRowIndex = 2; // Assuming the data starts from the third row (row index 2)
 
 	    List<String> data = new ArrayList<>();
 
@@ -901,7 +948,7 @@ public class GenericKeywords {
 	        Sheet sheet = workbook.getSheet(sheetName);
 
 	        // Find the column index for the specified column name
-	        Row headerRow = sheet.getRow(0);
+	        Row headerRow = sheet.getRow(1);
 	        int columnIndex = -1;
 	        for (Cell cell : headerRow) {
 	            if (cell.getStringCellValue().equalsIgnoreCase(columnName)) {
@@ -929,59 +976,10 @@ public class GenericKeywords {
 	        test.log(Status.FAIL, e.getMessage());
 	        return null;
 	    } 
-	  
 
 	    return data;
 	}
 
-	
-	
-//	public String readExcelDataAsString(String columnName, String nameOfSheet) {
-//	    String filePath = System.getProperty("user.dir") + "//Excel//data.xlsx";
-//	    String sheetName = nameOfSheet;
-//	    int startingRowIndex = 1; // Assuming the data starts from the second row (row index 1)
-//
-//	    StringBuilder data = new StringBuilder(); // Use a StringBuilder to concatenate data
-//
-//	    try (FileInputStream fileInputStream = new FileInputStream(filePath);
-//	         Workbook workbook = new XSSFWorkbook(fileInputStream)) {
-//
-//	        Sheet sheet = workbook.getSheet(sheetName);
-//
-//	        // Find the column index for the specified column name
-//	        Row headerRow = sheet.getRow(0);
-//	        int columnIndex = -1;
-//	        for (Cell cell : headerRow) {
-//	            if (cell.getStringCellValue().equalsIgnoreCase(columnName)) {
-//	                columnIndex = cell.getColumnIndex();
-//	                break;
-//	            }
-//	        }
-//
-//	        // Retrieve the data from the specified column
-//	        int lastRowIndex = sheet.getLastRowNum();
-//	        for (int rowIndex = startingRowIndex; rowIndex <= lastRowIndex; rowIndex++) {
-//	            Row dataRow = sheet.getRow(rowIndex);
-//	            if (dataRow != null) {
-//	                Cell cell = dataRow.getCell(columnIndex, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
-//	                if (cell != null) {
-//	                    cell.setCellType(CellType.STRING);
-//	                    String cellValue = cell.getStringCellValue();
-//	                    data.append(cellValue).append("\n"); // Append each value to the StringBuilder with a new line separator
-//	                } else {
-//	                    data.append("\n"); // Add a new line for blank cells
-//	                }
-//	            }
-//	        }
-//
-//	    } catch (Exception e) {
-//	        e.printStackTrace();
-//	        test.log(Status.FAIL, e.getMessage());
-//	        return null;
-//	    }
-//
-//	    return data.toString(); // Convert the StringBuilder to a single string and return it
-//	}
 
 	
 	public String readExcelDataAsString(String columnName, String nameOfSheet) {
