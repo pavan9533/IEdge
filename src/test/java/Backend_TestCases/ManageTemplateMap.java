@@ -135,7 +135,7 @@ public class ManageTemplateMap extends BaseClass{
 	}
 	
 	@Test
-	public void templateMapDivision() {
+	public void validateTemplateMapDivision() {
 		application.type("manageTemplateSearch_xpath", readExcelData("Template_SearchMapCategory", "ManageTemplate"));
 		application.wait(2);
 		application.clickLastColumnButtonForFirstColumnValue("manageTemplateTable_xpath", "editTemplateFirstColumn_xpath", "Template_SearchMapCategory",
@@ -179,7 +179,28 @@ public class ManageTemplateMap extends BaseClass{
 		}
 		application.scrollTo("templateMapCategoryBackToListButton_xpath");
 		application.click("templateMapCategoryBackToListButton_xpath", "Template category Back to list button");
-
-		
 	}
+	@Test
+	public void templateMapDivision() {
+		application.type("manageTemplateSearch_xpath", readExcelData("TemplateMapCategory_Search", "ManageTemplate"));
+		application.wait(2);
+		application.clickLastColumnButtonForFirstColumnValue("manageTemplateTable_xpath", "editTemplateFirstColumn_xpath", "TemplateMapCategory_Search",
+				"ManageTemplate", "templateMapCategoryButton_xpath");
+		try {
+			String categories = application.validateLinksPresent("templateMapCategoryUnmappedCategory_xpath");
+			if(categories.isBlank()) {
+				test.log(Status.INFO, "Mapped Categories are empty");
+			}else {
+				application.mapLinks("templateMapCategoryUnmappedCategory_xpath", "Template_MapCategory", "ManageDivision");
+				application.wait(2);
+			}
+			
+		}catch(Exception e) {
+			test.log(Status.INFO, "Mapped Categories are empty");
+		}
+		application.scrollTo("templateMapCategorySavebutton_xpath");
+		application.click("templateMapCategorySavebutton_xpath", "Template map Category save Button");
+		application.waitUntilPresenceOfElement("addTemplatePopUp_xpath", Duration.ofSeconds(5), "Template Map Category save PopUp");
+	}
+	
 }

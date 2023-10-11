@@ -4,19 +4,18 @@
   <listeners>
     <listener class-name="Listener.MyTestResult"/>
   </listeners>
-  <test thread-count="5" name="Manage Division(failed)">
+  <test thread-count="5" name="Manage Licensee(failed)">
     <classes>
-      <class name="Backend_TestCases.ManageDivision">
+      <class name="Backend_TestCases.ManageLicensee">
         <methods>
-          <include name="UnMapLinks"/>
+          <include name="createLicensee"/>
           <include name="beforeSuite"/>
           <include name="afterTest"/>
           <include name="beforeTest"/>
-          <include name="mapLinks"/>
           <include name="beforeMethod"/>
           <include name="afterSuite"/>
         </methods>
-      </class> <!-- Backend_TestCases.ManageDivision -->
+      </class> <!-- Backend_TestCases.ManageLicensee -->
     </classes>
-  </test> <!-- Manage Division(failed) -->
+  </test> <!-- Manage Licensee(failed) -->
 </suite> <!-- Failed suite [Suite] -->

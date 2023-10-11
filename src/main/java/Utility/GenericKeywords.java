@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
@@ -752,32 +753,111 @@ public class GenericKeywords {
 	    }
 	}
 	
-	public void populateDatesFromExcel(String locator, String columnName, String sheetName) {
-	    try {
-	        List<String> dates = readExcelData(columnName, sheetName);
-	        if (dates == null || dates.isEmpty()) {
-	            System.out.println("No dates found in the Excel sheet.");
-	            return;
+
+	public void selectDateFromExcel(String locatorkey, String columnName, String nameOfSheet) {
+	    List<String> dates = readExcelData(columnName, nameOfSheet);
+	    if (dates == null || dates.isEmpty()) {
+	        System.out.println("No dates found in the Excel sheet.");
+	        return;
+	    }
+
+	    for (String date : dates) {
+	        try {
+	            // Update the date format to "dd-MM-yyyy"
+	            Date sdf = new SimpleDateFormat("dd-MM-yyyy").parse(date);
+	            String day = new SimpleDateFormat("d").format(sdf); // Use 'd' to get the day without leading zero
+	            String monthAbbreviated = new SimpleDateFormat("MMM").format(sdf);
+	            String year = new SimpleDateFormat("yyyy").format(sdf);
+	            int desiredYear = Integer.parseInt(year); // Convert year to an integer
+
+	            // Construct the XPath for the month and year element
+	            String monthYearLocatorXPath = "//th[contains(@class, 'datepicker-switch')]";
+	            WebElement monthYearElement = driver.findElement(By.xpath(monthYearLocatorXPath));
+	            String displayedMonthYear = monthYearElement.getText();
+
+	            // Split the displayed month and year into separate variables
+	            String[] monthYearParts = displayedMonthYear.split(" ");
+	            String displayedMonth = monthYearParts[0];
+	            int displayedYear = Integer.parseInt(monthYearParts[1]); // Convert displayed year to an integer
+
+	            // Check if the displayed month and year match the desired month and year
+//	            while (!monthAbbreviated.equalsIgnoreCase(displayedMonth) || desiredYear < displayedYear) {
+//	                // Click the backward button to navigate to the previous year
+//	                String backwardButtonLocator = "//th[contains(@class, 'prev')]";
+//	                WebElement backwardButtonElement = driver.findElement(By.xpath(backwardButtonLocator));
+//	                backwardButtonElement.click();
+//
+//	                // Update the displayed month and year
+//	                displayedMonthYear = monthYearElement.getText();
+//	                monthYearParts = displayedMonthYear.split(" ");
+//	                displayedMonth = monthYearParts[0].substring(0, 3);
+//	                displayedYear = Integer.parseInt(monthYearParts[1]); // Convert displayed year to an integer
+//	            }
+	            while (!monthAbbreviated.equalsIgnoreCase(displayedMonth) || desiredYear < displayedYear || desiredYear > displayedYear) {
+	                if (desiredYear < displayedYear) {
+	                    // Click the backward button to navigate to the previous year
+	                    String backwardButtonLocator = "//th[contains(@class, 'prev')]";
+	                    WebElement backwardButtonElement = driver.findElement(By.xpath(backwardButtonLocator));
+	                    backwardButtonElement.click();
+	                } else if (desiredYear > displayedYear) {
+	                    // Click the forward button to navigate to the next year
+	                    String forwardButtonLocator = "//th[contains(@class, 'next')]";
+	                    WebElement forwardButtonElement = driver.findElement(By.xpath(forwardButtonLocator));
+	                    forwardButtonElement.click();
+	                }
+
+	                // Update the displayed month and year
+	                displayedMonthYear = monthYearElement.getText();
+	                monthYearParts = displayedMonthYear.split(" ");
+	                displayedMonth = monthYearParts[0].substring(0, 3);
+	                displayedYear = Integer.parseInt(monthYearParts[1]); // Convert displayed year to an integer
+	            }
+
+	            // Construct the XPath for the date cell
+	            String dateCellXPath = "//td[contains(@class, 'day') and not(contains(@class, 'old')) and not(contains(@class, 'new')) and text()='" + day + "']";
+
+	            // Locate the date cell
+	            WebElement dateCell = driver.findElement(By.xpath(dateCellXPath));
+
+	            // Click on the date cell
+	            dateCell.click();
+	        } catch (Exception e) {
+	            e.printStackTrace();
 	        }
-
-	        SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy");
-	        SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-	        for (String dateToSet : dates) {
-	            Date date = inputFormat.parse(dateToSet);
-				String formattedDate = outputFormat.format(date);
-
-				WebElement inputElement = driver.findElement(getLocator(locator));
-				inputElement.clear();
-				inputElement.sendKeys(formattedDate);
-				wait(3);
-				// Add a delay here if needed, to see the populated date before clearing the input for the next date
-				// Thread.sleep(1000); // For example, wait for 1 second
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
 	    }
 	}
+
+	
+
+
+
+	
+	public void populateDatesFromExcel(String locator, String columnName, String sheetName) {
+	    // Locate the table containing the date information
+	    WebElement table = driver.findElement(getLocator(locator));
+
+	    // Read the date from the Excel sheet
+	    String dateInExcel = readExcelData(columnName, sheetName).get(0);
+
+	    // Find all the td elements inside the table
+	    List<WebElement> cells = table.findElements(By.tagName("td"));
+
+	    // Search for the matching date in the table
+	    for (WebElement cell : cells) {
+	        // Extract data from each cell
+	        String date = cell.getText();
+
+	        if (dateInExcel.equals(date)) {
+	            // If the date matches the one from Excel, click on the cell
+	            cell.click();
+	            log("Clicked on the date: " + dateInExcel);
+	            break; // Exit the loop once a match is found
+	        }
+	    }
+	}
+
+	
+	
 	
 
 	

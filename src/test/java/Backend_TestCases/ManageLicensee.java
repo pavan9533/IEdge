@@ -79,12 +79,13 @@ public class ManageLicensee extends BaseClass{
 		application.validateErrorNotDisplayed("createLicenseeDulplicateDomain_xpath" , "Duplicate domain error");
 		application.click("createLicenseeStartDate_xpath", "Create Licensee Start Date ");
 		application.wait(2);
-		application.click("createLicenseeStartDate_xpath" , "Create Licensee Start Date ");
-		application.wait(2);
+		application.selectDateFromExcel("createLicenseStartDateCalender_xpath", "StartDate", "ManageLicensee");
 		application.wait(2);
 		application.click("createLicenseeSaveButton_xpath", "Create Licensee Save Button");
 		application.validateErrorNotDisplayed("createLicenseeFromDateFieldRequiredText_xpath", "Start date");
-		application.populateDatesFromExcel("createLicenseeToDate_xpath", "EndDate", "ManageLicensee");
+		application.click("createLicenseeToDate_xpath", "Create Licensee To Date");
+		application.wait(2);
+		application.selectDateFromExcel("createLicenseEndDateCalender_xpath", "EndDate", "ManageLicensee");
 		application.wait(2);
 		application.click("createLicenseeSaveButton_xpath", "Create Licensee Save Button");
 		application.validateErrorNotDisplayed("createLicenseeToDateFieldRequiredText_xpath", "To Date");
@@ -95,7 +96,7 @@ public class ManageLicensee extends BaseClass{
 	}
 	@Test
 	public void editLicensee() {
-		application.clickLastColumnButtonForFirstColumnValue("manageLicenseeTable_xpath","manageLicenceeFirstColumn_xpath", "LicenseeName","ManageLicensee","manageLicenseeTableEdit_xpath");
+		application.clickLastColumnButtonForFirstColumnValue("manageLicenseeTable_xpath","manageLicenceeFirstColumn_xpath", "Edit_LicenseeName","ManageLicensee","manageLicenseeTableEdit_xpath");
 		application.wait(5);
 		application.validateElementPresentText("licenseeNameText_xpath", "licensee name");
 		application.validateElementPresent("licenseeCompanyDomainText_xpath" , "Company Domain Text");
@@ -175,7 +176,7 @@ public class ManageLicensee extends BaseClass{
 			test.log(Status.INFO, "Company Details are not available.");
 		}
 		application.clear("editlicenseeNoOfCards_xpath");
-		application.type("editlicenseeNoOfCards_xpath", readExcelData("NoOfCards", "ManageLicensee"));
+		application.type("editlicenseeNoOfCards_xpath", readExcelData("Edit_NoOfCards", "ManageLicensee"));
 		application.click("editLicenseeUpdateButton_xpath" , "Edit Licensee , update Button");
 //		application.wait(1);
 //		application.validatePopup("Licensee details has been updated successfully.");

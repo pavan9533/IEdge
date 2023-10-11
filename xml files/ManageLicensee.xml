@@ -18,10 +18,10 @@
 	<test name="Manage Licensee"> 
 		<classes>
 			<class name="Backend_TestCases.ManageLicensee">
-				<methods>
-					<include name="openManageLicensee"></include>
-					<include name="createLicensee"></include>
-				</methods>
+			<methods>
+			<include name="openManageLicensee"></include>
+			<include name="createLicensee"></include>
+			</methods>
 			</class>
 		</classes>
 	</test>

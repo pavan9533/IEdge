@@ -481,12 +481,7 @@ public class ValidationKeyword extends GenericKeywords{
 			test.log(Status.FAIL, NameError.getText()+" is diplayed for blank input in Licensee Name.");
 			generateScreenshots(error);
 		}
-//		if(DomainError.getText().toLowerCase().contains(DuplicateDomainError)){
-//			test.log(Status.PASS, DomainError.getText()+" is displayed for duplicate Domain Entered.");
-//		}else {
-//			test.log(Status.FAIL, DomainError.getText()+" is displayed for duplicate Domain Entered.");
-//			generateScreenshots("DomainError");
-//		}
+//	
 		if(DomainError.getText().equalsIgnoreCase(error)){
 			test.log(Status.PASS, DomainError.getText()+" is displayed for duplicate Domain Entered.");
 		}else {
