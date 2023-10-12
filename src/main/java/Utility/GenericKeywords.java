@@ -268,15 +268,21 @@ public class GenericKeywords {
 	}
 	
 	public String getStringText(String locatorKey) {
-		WebElement e = driver.findElement(getLocator(locatorKey));
-		String text=e.getText();
-		if(e.isDisplayed()) {
-		
-		test.log(Status.PASS, text);
-		}else {
-			test.log(Status.INFO, "Text is not present");
+		try {
+			WebElement e = driver.findElement(getLocator(locatorKey));
+			String text=e.getText();
+			if(e.isDisplayed()) {
+			
+			test.log(Status.PASS, text);
+			}else {
+				test.log(Status.INFO, "Text is not present");
+			}
+			return text;
+		}catch(Exception e) {
+			test.log(Status.FAIL, e);
+			return "";
 		}
-		return text;
+		
 	}
 	public WebElement getText1(String locatorKey) {
 		WebElement e = driver.findElement(getLocator(locatorKey));

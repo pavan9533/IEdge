@@ -872,6 +872,17 @@ public class ApplicationKeyword extends ValidationKeyword{
 			   generateScreenshots("Mapping");
 		   }
 	   }
+
+	   public List<String> getColumnText(String locator) {
+		   WebElement row = driver.findElement(getLocator(locator));
+		   List <WebElement> columnText = row.findElements(By.tagName("td"));
+		   List<String> columnTextList = new ArrayList<>();
+
+		    for (WebElement column : columnText) {
+		        columnTextList.add(column.getText());
+		    }
+		    return columnTextList;
+	   }
 	   
 }
 
