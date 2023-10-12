@@ -452,6 +452,7 @@ public class GenericKeywords {
 		}
     }
 	
+	
 
 
 	public void scrollByValue(String value) {
@@ -601,7 +602,9 @@ public class GenericKeywords {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, maxDuration);
 			wait.until(ExpectedConditions.presenceOfElementLocated(getLocator(locator)));
-			test.log(Status.PASS, locatorName+" is Visible");
+			String locatorText = driver.findElement(getLocator(locator)).getText();
+			test.log(Status.PASS, locatorText+" is Visible");
+			generateScreenshots("PopUp");
 		}catch(Exception e) {
 			test.log(Status.FAIL, locatorName + "Element not visible within the expected time " +e);
 		}

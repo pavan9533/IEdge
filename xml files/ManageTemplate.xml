@@ -14,12 +14,13 @@
 			<class name="Backend_TestCases.Login"/>
 		</classes> 
 	</test>
-	<test name="Manage Division"> 
+	<test name="Manage Template"> 
 		<classes>
 			<class name="Backend_TestCases.ManageTemplateMap">
 				<methods>
 					<include name="openManageTemplate"></include>
-					<include name="validateTemplateMapDivision"></include>
+					<include name="templateMapLinks"></include>
+					<include name="templateUnMapLinks"></include>
 				</methods>
 			</class>
 		</classes>

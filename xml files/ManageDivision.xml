@@ -19,7 +19,7 @@
 			<class name="Backend_TestCases.ManageDivision">
 				<methods>
 					<include name="openManageDivision"></include>
-					<include name="validateMapLinks"></include>
+					<include name="mapLinks"></include>
 				</methods>
 			</class>
 		</classes>

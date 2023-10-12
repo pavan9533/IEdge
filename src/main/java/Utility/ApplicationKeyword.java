@@ -645,6 +645,7 @@ public class ApplicationKeyword extends ValidationKeyword{
 			   WebElement unMappedTable = driver.findElement(getLocator(locator));
 			   String unMap = unMappedTable.getAttribute("class");
 			   log(unMap);
+			   JavascriptExecutor js = (JavascriptExecutor) driver;
 			   if(unMap.contains("left")) {
 				   List<WebElement> categories = null;
 				   try {
@@ -661,6 +662,8 @@ public class ApplicationKeyword extends ValidationKeyword{
 								   WebElement categoryToClick = driver.findElement(By.xpath("//div[text()='"+categoryName+"']"));
 								   String excelCategory = readExcelData(column, sheet).get(index);
 								   if(categoryName.equalsIgnoreCase(excelCategory)) {
+									   js.executeScript("arguments[0].scrollIntoView();", categoryToClick);
+									   wait(3);
 									   categoryToClick.click();
 									   test.log(Status.PASS, categoryToClick.getText()+" is mapped.");
 								   }
@@ -681,6 +684,7 @@ public class ApplicationKeyword extends ValidationKeyword{
 			   WebElement unMappedTable = driver.findElement(getLocator(locator));
 			   String unMap = unMappedTable.getAttribute("class");
 			   log(unMap);
+			   JavascriptExecutor js = (JavascriptExecutor) driver;
 			   if(unMap.contains("right")) {
 				   List<WebElement> categories = null;
 				   try {
@@ -697,6 +701,8 @@ public class ApplicationKeyword extends ValidationKeyword{
 								   WebElement categoryToClick = driver.findElement(By.xpath("//div[text()='"+categoryName+"']"));
 								   String excelCategory = readExcelData(column, sheet).get(index);
 								   if(categoryName.equalsIgnoreCase(excelCategory)) {
+									   js.executeScript("arguments[0].scrollIntoView();", categoryToClick);
+									   wait(3);
 									   categoryToClick.click();
 									   test.log(Status.PASS, categoryToClick.getText()+" is UnMapped.");
 								   }
@@ -754,29 +760,68 @@ public class ApplicationKeyword extends ValidationKeyword{
 		   return divText;
 	   }
 	   
+//	   public void mapLinks(String locator , String column, String sheet) {
+//		   try {
+//			   WebElement unMappedTable = driver.findElement(getLocator(locator));
+//			   String unMap = unMappedTable.getAttribute("class");
+//			   log(unMap);
+//			   if(unMap.contains("left")) {
+//				   List<WebElement> links = null;
+//				   try {
+//					   links = unMappedTable.findElements(By.tagName("div"));
+//				   }catch(Exception e) {
+//					   test.log(Status.FAIL, "Links are not visible "+e);
+//					   generateScreenshots("Links");
+//				   }
+//				   int excelDataSize = readExcelData(column, sheet).size();
+//					   if(links != null) {
+//						   for (int index = 0; index <excelDataSize && index <= 50; index++) {
+//							   for(WebElement link : links) {
+//								   String linkName = link.getText();
+//								   WebElement linkToClick = driver.findElement(By.xpath("//div[text()='"+linkName+"']"));
+//								   String excelCategory = readExcelData(column, sheet).get(index);
+//								   if(linkName.equalsIgnoreCase(excelCategory)) {
+//									   linkToClick.click();
+//									   test.log(Status.PASS, linkToClick.getText()+" is mapped.");
+//								   }
+//							   }
+//						   }
+//					   }
+//			   }else {
+//				   test.log(Status.INFO , "Unable to map");
+//			   }
+//		   }catch(Exception e) {
+//			   test.log(Status.FAIL, "Map left block is not visible. "+ e);
+//			   generateScreenshots("Mapping");
+//		   }
+//	   }
+
 	   public void mapLinks(String locator , String column, String sheet) {
 		   try {
 			   WebElement unMappedTable = driver.findElement(getLocator(locator));
 			   String unMap = unMappedTable.getAttribute("class");
 			   log(unMap);
+			   JavascriptExecutor js = (JavascriptExecutor) driver;
 			   if(unMap.contains("left")) {
-				   List<WebElement> categories = null;
+				   List<WebElement> links = null;
 				   try {
-					   categories = unMappedTable.findElements(By.tagName("div"));
+					   links = unMappedTable.findElements(By.tagName("div"));
 				   }catch(Exception e) {
 					   test.log(Status.FAIL, "Links are not visible "+e);
 					   generateScreenshots("Links");
 				   }
 				   int excelDataSize = readExcelData(column, sheet).size();
-					   if(categories != null) {
+					   if(links != null) {
 						   for (int index = 0; index <excelDataSize && index <= 50; index++) {
-							   for(WebElement category : categories) {
-								   String categoryName = category.getText();
-								   WebElement categoryToClick = driver.findElement(By.xpath("//div[text()='"+categoryName+"']"));
-								   String excelCategory = readExcelData(column, sheet).get(index);
-								   if(categoryName.equalsIgnoreCase(excelCategory)) {
-									   categoryToClick.click();
-									   test.log(Status.PASS, categoryToClick.getText()+" is mapped.");
+							   for(WebElement link : links) {
+								   String linkName = link.getText();
+								   WebElement linkToClick = driver.findElement(By.xpath("//div[text()='"+linkName+"']"));
+								   String excelLink = readExcelData(column, sheet).get(index);
+								   if(linkName.equalsIgnoreCase(excelLink)) {
+									   js.executeScript("arguments[0].scrollIntoView();", linkToClick);
+									   wait(3);
+									   linkToClick.click();
+									   test.log(Status.PASS, linkToClick.getText()+" is mapped.");
 								   }
 							   }
 						   }
@@ -785,34 +830,36 @@ public class ApplicationKeyword extends ValidationKeyword{
 				   test.log(Status.INFO , "Unable to map");
 			   }
 		   }catch(Exception e) {
-			   test.log(Status.FAIL, "Map left block is not visible. "+ e);
-			   generateScreenshots("Mapping");
+			   test.log(Status.FAIL, "Map links left block is not visible. "+ e);
+			   generateScreenshots("Map Link");
 		   }
 	   }
-
 	   public void unMapLinks(String locator , String column, String sheet) {
 		   try {
 			   WebElement unMappedTable = driver.findElement(getLocator(locator));
 			   String unMap = unMappedTable.getAttribute("class");
 			   log(unMap);
+			   JavascriptExecutor js = (JavascriptExecutor) driver;
 			   if(unMap.contains("right")) {
-				   List<WebElement> categories = null;
+				   List<WebElement> links = null;
 				   try {
-					   categories = unMappedTable.findElements(By.tagName("div"));
+					   links = unMappedTable.findElements(By.tagName("div"));
 				   }catch(Exception e) {
 					   test.log(Status.FAIL, "Links are not visible "+e);
 					   generateScreenshots("Links");
 				   }
 				   int excelDataSize = readExcelData(column, sheet).size();
-					   if(categories != null) {
+					   if(links != null) {
 						   for (int index = 0; index <excelDataSize && index <= 50; index++) {
-							   for(WebElement category : categories) {
-								   String categoryName = category.getText();
-								   WebElement categoryToClick = driver.findElement(By.xpath("//div[text()='"+categoryName+"']"));
-								   String excelCategory = readExcelData(column, sheet).get(index);
-								   if(categoryName.equalsIgnoreCase(excelCategory)) {
-									   categoryToClick.click();
-									   test.log(Status.PASS, categoryToClick.getText()+" is UnMapped.");
+							   for(WebElement link : links) {
+								   String linkName = link.getText();
+								   WebElement linkToClick = driver.findElement(By.xpath("//div[text()='"+linkName+"']"));
+								   String excelLink = readExcelData(column, sheet).get(index);
+								   if(linkName.equalsIgnoreCase(excelLink)) {
+									   js.executeScript("arguments[0].scrollIntoView();", linkToClick);
+									   wait(3);
+									   linkToClick.click();
+									   test.log(Status.PASS, linkToClick.getText()+" is UnMapped.");
 								   }
 							   }
 						   }
